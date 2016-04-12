@@ -30,7 +30,7 @@ Each MongoDB instance added must also have the following labels added to it's ta
 1. '**nodetype**' - A field for grouping node types: 'mongod' for standalone/replset instances, 'config' for shard config servers and 'mongos' for shard mongos instances.  **_required_**
 1. '**replset**' - An field for instances that are members of a MongoDB Replication Set. This must match the replset name seen in the MongoDB command '*rs.status()*'. **_optional_**
 
-Example target section for a replset member (*port 9140 = prometheus_mongodb_exporter/port 9100 = node_exporter*):
+Example target section for a replset member of "shard12" (*port 9140 = prometheus_mongodb_exporter/port 9100 = node_exporter*):
 
 ```
       - targets: ['tyrion.westeros.com:9140','tyrion.westeros.com:9100']
@@ -62,8 +62,6 @@ Example target section for a mongos member (*notice no 'replset' label because i
 7. Import each Grafana template file from the 'dashboards' subdir into Grafana's UI and press 'Save' after each import. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
 
 ### Todos
- - Write more tests
- - Get WiredTiger storage engine metrics to stable state (*beta/experimental now*) 
- - Add storage engine metrics for PerconaFT and RocksDB
+ - Add storage engine metrics for PerconaFT and RocksDB, when they're available in the exporter.
  - Automate/rethink target 'labels' in prometheus.yml (*used for grouping metrics in graphs*)
 

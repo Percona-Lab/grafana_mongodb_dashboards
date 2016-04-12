@@ -3,7 +3,7 @@
 '''
 This cleans the items in 'templating', 'time' and 'refresh' section of an exported Grafana
 dashboard template by setting the item's 'options' array, 'current' hash to be empty, template 
-'refresh' to true and time to now-1h, 10 sec refresh.
+'refresh' to true and time to now-1h, 10 sec refresh, timezone to utc.
 
 This is useful as exported templates contain the current values the developer was testing
 with, which should not go into the shared templates
@@ -38,6 +38,12 @@ if os.path.isfile(fileName):
 		data['time']['to'] = "now"
         else:
                 print "ERROR: problem finding 'time' section in file!"
+                sys.exit(1)
+
+        if 'timezone' in data:
+		data['timezone'] = "utc"
+        else:
+                print "ERROR: problem finding 'timezone' section in file!"
                 sys.exit(1)
 
 	if 'refresh' in data:

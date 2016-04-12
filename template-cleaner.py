@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 '''
-This cleans the items in 'templating' section of an exported Grafana dashboard template
-by setting the item's 'options' array, 'current' hash to be empty and 'refresh' to true
+This cleans the items in 'templating', 'time' and 'refresh' section of an exported Grafana
+dashboard template by setting the item's 'options' array, 'current' hash to be empty, template 
+'refresh' to true and time to now-1h, 10 sec refresh.
 
 This is useful as exported templates contain the current values the developer was testing
 with, which should not go into the shared templates
@@ -29,7 +30,20 @@ if os.path.isfile(fileName):
 			item['options'] = []
 			item['refresh'] = True
 	else:
-		print "ERROR: problem with file!"
+		print "ERROR: problem finding 'templating' section in file!"
+		sys.exit(1)
+
+        if 'time' in data:
+		data['time']['from'] = "now-1h"
+		data['time']['to'] = "now"
+        else:
+                print "ERROR: problem finding 'time' section in file!"
+                sys.exit(1)
+
+	if 'refresh' in data:
+		data['refresh'] = "10s"
+	else:
+		print "ERROR: problem finding 'refresh' section in file!"
 		sys.exit(1)
 
 	tmpFileName = fileName + ".tmp"

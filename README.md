@@ -19,7 +19,7 @@ Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https
 
 ### Prometheus Configuration
 
-The grouping of metrics of the OS (*node_exporter*) and MongoDB (*prometheus_mongodb_metrics*) is achieved by using labels applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (*prometheus.yml*).
+The grouping of metrics of the OS (*node_exporter*) and MongoDB (*prometheus_mongodb_exporter*) is achieved by using labels applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (*prometheus.yml*).
 
 Each MongoDB instance to be monitored must be added as a new group in the prometheus.yml file with both the 'node' and 'mongodb' exporter as 'targets'.
 
@@ -30,7 +30,7 @@ Each MongoDB instance added must also have the following labels added to it's ta
 1. '**nodetype**' - A field for grouping node types: 'mongod' for standalone/replset instances, 'config' for shard config servers and 'mongos' for shard mongos instances.  **_required_**
 1. '**replset**' - An field for instances that are members of a MongoDB Replication Set. This must match the replset name seen in the MongoDB command '*rs.status()*'. **_optional_**
 
-Example of config for a replset member:
+Example target section for a replset member (*port 9140 = prometheus_mongodb_exporter/port 9100 = node_exporter*):
 
 ```
       - targets: ['tyrion.westeros.com:9140','tyrion.westeros.com:9100']
@@ -38,17 +38,17 @@ Example of config for a replset member:
           alias: 'tyrion.westeros.com:27017'
           nodetype: 'mongod'
           replset: 'shard12'
-          cluster: 'prodWebsite'
+          cluster: 'prodCluster'
 ```
 
-Example of config for a mongos member (notice no 'replset' label):
+Example target section for a mongos member (*notice no 'replset' label because it is mongos*):
 
 ```
       - targets: ['arya.westeros.com:9140','arya.westeros.com:9100']
         labels:
           alias: 'arya.westeros.com:27018'
           nodetype: 'mongos'
-          cluster: 'prodWebsite'
+          cluster: 'prodCluster'
 ```
 
 ### Installation
@@ -58,8 +58,8 @@ Example of config for a mongos member (notice no 'replset' label):
 3. Install [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) on all nodes that run MongoDB. **Link TBD**
 4. Install [node_exporter](https://github.com/prometheus/node_exporter) on all nodes that run the prometheus_mongodb_exporter
 5. For each instance to monitor, add 'targets' and 'labels' to the prometheus.yml file as described in '*Prometheus Configuration*' section above.
-6. Reload Prometheus configuration file (or restart Prometheus). **Link TBD**
-7. Import the Grafana template .json files from this project into Grafana's UI. **Steps TBD**
+6. Reload Prometheus configuration file ("kill -HUP <prometheus pid>") or restart Prometheus.
+7. Import the Grafana template .json files from this project into Grafana's UI. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
 
 ### Todos
  - Write Tests

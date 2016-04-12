@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 [ -d example ] && rm -rf example
 mkdir -p example/data example/log example/tmp
 piddir=$(readlink -f example/tmp)

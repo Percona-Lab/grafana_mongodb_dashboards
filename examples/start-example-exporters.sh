@@ -1,11 +1,13 @@
-export PATH=$PATH:$HOME/prometheus_mongodb_exporter
+#!/bin/bash
+
+set -e
 
 [ ! -d example/log ] && mkdir -p example/log
 [ ! -d example/tmp ] && mkdir -p example/tmp
 logdir=$(readlink -f example/log)
 piddir=$(readlink -f example/tmp)
 
-killall mongodb_exporter 2>/dev/null
+killall mongodb_exporter 2>/dev/null || true
 
 mongodb_exporter -mongodb.uri mongodb://localhost:37017 -web.listen-address ":47017" -log_dir $logdir/37017 >/dev/null &
 mongodb_exporter -mongodb.uri mongodb://localhost:37018 -web.listen-address ":47018" -log_dir $logdir/37018 >/dev/null &

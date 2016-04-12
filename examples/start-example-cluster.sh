@@ -10,12 +10,12 @@ datadir=$(readlink -f example/data)
 
 echo -e "\n### Starting 2 x nodes for 'shard1' replica set\n"
 mkdir $datadir/37017 $datadir/37027 $logdir/37017 $logdir/37027
-mongod --port 37017 --dbpath $datadir/37017 --logpath $logdir/37017/mongod.log --pidfilepath $piddir/mongod.37017.pid --smallfiles --oplogSize 50 --replSet shard1 --fork
-mongod --port 37027 --dbpath $datadir/37027 --logpath $logdir/37027/mongod.log --pidfilepath $piddir/mongod.37027.pid --smallfiles --oplogSize 50 --replSet shard1 --fork
+mongod --port 37017 --dbpath $datadir/37017 --logpath $logdir/37017/mongod.log --pidfilepath $piddir/mongod.37017.pid --smallfiles --oplogSize 50 --storageEngine wiredTiger --wiredTigerCacheSizeGB 1 --replSet shard1 --fork
+mongod --port 37027 --dbpath $datadir/37027 --logpath $logdir/37027/mongod.log --pidfilepath $piddir/mongod.37027.pid --smallfiles --oplogSize 50 --storageEngine wiredTiger --wiredTigerCacheSizeGB 1 --replSet shard1 --fork
 
 echo -e "\n### Starting cluster config node\n"
 mkdir $datadir/37019 $logdir/37019
-mongod --port 37019 --dbpath $datadir/37019 --logpath $logdir/37019/mongod.log --pidfilepath $piddir/mongod.37019.pid --smallfiles --oplogSize 50 --configsvr --fork
+mongod --port 37019 --dbpath $datadir/37019 --logpath $logdir/37019/mongod.log --pidfilepath $piddir/mongod.37019.pid --smallfiles --oplogSize 50 --storageEngine wiredTiger --wiredTigerCacheSizeGB 1 --configsvr --fork
 
 echo -e "\n### Waiting 15 seconds...\n"
 sleep 15

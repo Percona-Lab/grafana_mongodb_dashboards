@@ -9,3 +9,4 @@ for pidFile in example/tmp/*.pid; do
 		fi
 	fi
 done
+echo OK!

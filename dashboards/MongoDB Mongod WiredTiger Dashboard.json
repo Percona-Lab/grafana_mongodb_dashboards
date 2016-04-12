@@ -628,7 +628,7 @@
                     },
                     "id": 57,
                     "isNew": true,
-                    "leftYAxisLabel": "Transactions",
+                    "leftYAxisLabel": "",
                     "legend": {
                         "avg": false,
                         "current": false,

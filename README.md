@@ -18,7 +18,7 @@ Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https
 
 ### Prometheus Configuration
 
-The grouping of metrics of the OS (*node_exporter*) and MongoDB (*prometheus_mongodb_metrics*) is achieved by using labels applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (prometheus.yml).
+The grouping of OS (*node_exporter*) and MongoDB (*prometheus_mongodb_metrics*) metrics is achieved by using 'labels' applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (prometheus.yml).
 
 Each MongoDB instance to be monitored must be added as a new group in the prometheus.yml file with both the 'node' and 'mongodb' exporter as 'targets'.
 
@@ -29,7 +29,7 @@ Each MongoDB instance added must also have the following labels added to it's ta
 1. '**nodetype**' - A field for grouping node types: 'mongod' for standalone/replset instances, 'config' for shard config servers and 'mongos' for shard mongos instances.  **_required_**
 1. '**replset**' - An field for instances that are members of a MongoDB Replication Set. This must match the replset name seen in the MongoDB command '*rs.status()*'. **_optional_**
 
-Example of config for a replset member:
+Example of config for a replset single member:
 
 ```
       - targets: ['tyrion.westeros.com:9140','tyrion.westeros.com:9100']

@@ -15,10 +15,11 @@ Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https
 1. The [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) for Prometheus on at least one Percona Server MongoDB or MongoDB instance
 1. The [node_exporter](https://github.com/prometheus/node_exporter) for Prometheus on each node running the [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter)
 1. "Target Group" labels in Prometheus server configuration file (*explained later*)
+1. Prometheus is added as a Data Source to Grafana with the Data Source name "Prometheus" (*otherwise you need to change the "datasource" field in the templates*)
 
 ### Prometheus Configuration
 
-The grouping of OS (*node_exporter*) and MongoDB (*prometheus_mongodb_metrics*) metrics is achieved by using 'labels' applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (prometheus.yml).
+The grouping of metrics of the OS (*node_exporter*) and MongoDB (*prometheus_mongodb_metrics*) is achieved by using labels applied to [Prometheus Target Groups](https://prometheus.io/docs/operating/configuration/#<target_group>) in the Prometheus server config file (*prometheus.yml*).
 
 Each MongoDB instance to be monitored must be added as a new group in the prometheus.yml file with both the 'node' and 'mongodb' exporter as 'targets'.
 
@@ -29,7 +30,7 @@ Each MongoDB instance added must also have the following labels added to it's ta
 1. '**nodetype**' - A field for grouping node types: 'mongod' for standalone/replset instances, 'config' for shard config servers and 'mongos' for shard mongos instances.  **_required_**
 1. '**replset**' - An field for instances that are members of a MongoDB Replication Set. This must match the replset name seen in the MongoDB command '*rs.status()*'. **_optional_**
 
-Example of config for a replset single member:
+Example of config for a replset member:
 
 ```
       - targets: ['tyrion.westeros.com:9140','tyrion.westeros.com:9100']

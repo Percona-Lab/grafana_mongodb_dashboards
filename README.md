@@ -54,15 +54,15 @@ Example target section for a mongos member (*notice no 'replset' label because i
 ### Installation
 
 1. Install and start Prometheus and Grafana 2.0+ servers with default configuration (not explained here)
-2. Configure Grafana to use Prometheus as a Data Source (not expained here). Link: [Grafana Support for Prometheus: Using](https://prometheus.io/docs/visualization/grafana/#using)
+2. Configure Grafana to use Prometheus as a Data Source. Link: [Grafana Support for Prometheus: Using](https://prometheus.io/docs/visualization/grafana/#using)
 3. Install [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) on all nodes that run MongoDB. Link: [Readme](https://github.com/Percona-Lab/prometheus_mongodb_exporter)
-4. Install [node_exporter](https://github.com/prometheus/node_exporter) on all nodes that run the prometheus_mongodb_exporter
+4. Install [node_exporter](https://github.com/prometheus/node_exporter) on all nodes that run the prometheus_mongodb_exporter. Link: [Readme](https://github.com/prometheus/node_exporter)
 5. For each instance to monitor, add 'targets' and 'labels' to the prometheus.yml file as described in '*Prometheus Configuration*' section above
-6. Reload Prometheus configuration file (*"kill -HUP PID"*) or restart Prometheus
-7. Import the Grafana template .json files from this project into Grafana's UI. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
+6. Reload Prometheus configuration file (*"kill -HUP PID"*) or restart the Prometheus process/service
+7. Import the Grafana template .json files from the 'dashboards' subdir into Grafana's UI. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
 
 ### Todos
- - Write Tests
+ - Write more tests
  - Get WiredTiger storage engine metrics to stable state (*beta/experimental now*) 
  - Add storage engine metrics for PerconaFT and RocksDB
  - Automate/rethink target 'labels' in prometheus.yml (*used for grouping metrics in graphs*)

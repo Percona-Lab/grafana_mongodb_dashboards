@@ -59,7 +59,7 @@ Example target section for a mongos member (*notice no 'replset' label because i
 4. Install [node_exporter](https://github.com/prometheus/node_exporter) on all nodes that run the prometheus_mongodb_exporter. Link: [Readme](https://github.com/prometheus/node_exporter)
 5. For each instance to monitor, add 'targets' and 'labels' to the prometheus.yml file as described in '*Prometheus Configuration*' section above
 6. Reload Prometheus configuration file (*"kill -HUP PID"*) or restart the Prometheus process/service
-7. Import the Grafana template .json files from the 'dashboards' subdir into Grafana's UI. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
+7. Import each Grafana template file from the 'dashboards' subdir into Grafana's UI and press 'Save' after each import. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
 
 ### Todos
  - Write more tests

@@ -66,7 +66,7 @@ Example target section for a mongos member (*notice no 'replset' label because i
  - Add storage engine metrics for PerconaFT and RocksDB, when they're available in the exporter.
  - Automate/rethink target 'labels' in prometheus.yml (*used for grouping metrics in graphs*)
 
-## Contact
+### Contact
 
 - Tim Vaillancourt - <tim.vaillancourt@percona.com>
 - David Murphy - <david.murphy@percona.com>

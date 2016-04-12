@@ -1529,7 +1529,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"testdev\",state=\"PRIMARY\"}) by (replset)-min(mongodb_mongod_replset_member_optime_date{cluster=\"testdev\",state=\"SECONDARY\"}) by (replset)",
+                            "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"PRIMARY\"}) by (replset)-min(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"SECONDARY\"}) by (replset)",
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
                             "refId": "A",

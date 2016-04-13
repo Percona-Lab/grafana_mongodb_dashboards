@@ -28,12 +28,12 @@ echo -e "\n### Initiating shard1 replset\n"
 echo 'rs.initiate({ "_id" : "shard1", "members" : [
 	{ "_id" : 0, "host" : "localhost:37017" },
 	{ "_id" : 1, "host" : "localhost:37027" } ]
-})' | mongo --port 37017 | tail -n+3 | grep -v ^bye$
+})' | mongo --port 37017 --quiet
 sleep 5
 
 echo -e "\n### Initiating a 1-shard cluster\n"
-echo 'sh.addShard("shard1/localhost:37017")' | mongo --port 37018 | tail -n+3 | grep -v ^bye$
-echo 'sh.enableSharding("testSharding")' | mongo --port 37018 | tail -n+3 | grep -v ^bye$
-echo 'sh.shardCollection("testSharding.test", { _id : 1 })' | mongo --port 37018 | tail -n+3 | grep -v ^bye$
+echo 'sh.addShard("shard1/localhost:37017")' | mongo --port 37018 --quiet
+echo 'sh.enableSharding("testSharding")' | mongo --port 37018 --quiet
+echo 'sh.shardCollection("testSharding.test", { _id : 1 })' | mongo --port 37018 --quiet
 
 echo -e "\n### Done!"

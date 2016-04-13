@@ -14,7 +14,7 @@ Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https
 1. A Grafana 2.0+ server (*http://grafana.org/*)
 1. The [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) for Prometheus on at least one Percona Server MongoDB or MongoDB instance
 1. The [node_exporter](https://github.com/prometheus/node_exporter) for Prometheus on each node running the [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter)
-1. "Target Group" labels in Prometheus server configuration file (See "[Prometheus Configuration](#prometheus-configuration)")
+1. "Target Group" labels in Prometheus server configuration file (*See "[Prometheus Configuration](#prometheus-configuration)"*)
 1. Prometheus is added as a Data Source to Grafana with the Data Source name "Prometheus" (*otherwise you need to change the "datasource" field in the templates*)
 
 ### Prometheus Configuration

@@ -212,23 +212,7 @@
                     "title": "Replica Set Last Election",
                     "type": "singlestat",
                     "valueFontSize": "80%",
-                    "valueMaps": [
-                        {
-                            "op": "=",
-                            "text": "PRIMARY",
-                            "value": "1"
-                        },
-                        {
-                            "op": "=",
-                            "text": "SECONDARY",
-                            "value": "2"
-                        },
-                        {
-                            "op": "=",
-                            "text": "ARBITER",
-                            "value": "0"
-                        }
-                    ],
+                    "valueMaps": [],
                     "valueName": "avg"
                 },
                 {
@@ -278,23 +262,7 @@
                     "title": "Current Linux Load Avg",
                     "type": "singlestat",
                     "valueFontSize": "80%",
-                    "valueMaps": [
-                        {
-                            "op": "=",
-                            "text": "PRIMARY",
-                            "value": "1"
-                        },
-                        {
-                            "op": "=",
-                            "text": "SECONDARY",
-                            "value": "2"
-                        },
-                        {
-                            "op": "=",
-                            "text": "ARBITER",
-                            "value": "0"
-                        }
-                    ],
+                    "valueMaps": [],
                     "valueName": "avg"
                 },
                 {
@@ -344,23 +312,7 @@
                     "title": "Current User CPU %",
                     "type": "singlestat",
                     "valueFontSize": "80%",
-                    "valueMaps": [
-                        {
-                            "op": "=",
-                            "text": "PRIMARY",
-                            "value": "1"
-                        },
-                        {
-                            "op": "=",
-                            "text": "SECONDARY",
-                            "value": "2"
-                        },
-                        {
-                            "op": "=",
-                            "text": "ARBITER",
-                            "value": "0"
-                        }
-                    ],
+                    "valueMaps": [],
                     "valueName": "avg"
                 },
                 {
@@ -410,23 +362,7 @@
                     "title": "Current Memory Used %",
                     "type": "singlestat",
                     "valueFontSize": "80%",
-                    "valueMaps": [
-                        {
-                            "op": "=",
-                            "text": "PRIMARY",
-                            "value": "1"
-                        },
-                        {
-                            "op": "=",
-                            "text": "SECONDARY",
-                            "value": "2"
-                        },
-                        {
-                            "op": "=",
-                            "text": "ARBITER",
-                            "value": "0"
-                        }
-                    ],
+                    "valueMaps": [],
                     "valueName": "avg"
                 }
             ],

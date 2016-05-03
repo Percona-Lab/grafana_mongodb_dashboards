@@ -500,18 +500,18 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
-                            "metric": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concur_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
-                            "metric": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
                             "step": 2
                         }
@@ -576,18 +576,18 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
-                            "metric": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concur_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
-                            "metric": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
                             "step": 2
                         }
@@ -655,7 +655,7 @@
                             "expr": "irate(mongodb_mongod_wiredtiger_transactions_total_chkp_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "Checkpoint Time",
-                            "metric": "mongodb_mongod_wiredtiger_concur_transactions_tickets_total",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
                             "step": 2
                         }

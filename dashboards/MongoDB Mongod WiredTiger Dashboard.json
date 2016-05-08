@@ -277,7 +277,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_cache_current_pages{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_cache_pages_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"written\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "Created",
                             "refId": "B",

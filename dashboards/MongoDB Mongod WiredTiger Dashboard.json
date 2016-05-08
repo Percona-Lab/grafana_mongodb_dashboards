@@ -929,23 +929,16 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_cache_pages_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"written\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "Written",
-                            "refId": "B",
-                            "step": 11
-                        },
-                        {
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_evicted_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "Evicted_{{type}}",
+                            "legendFormat": "{{type}}",
                             "refId": "A",
                             "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Write / Evict Rate",
+                    "title": "Mongod - WiredTiger Cache Eviction Rate",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"

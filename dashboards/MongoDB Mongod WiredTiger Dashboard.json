@@ -272,28 +272,28 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_pages_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"written\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "Created",
+                            "legendFormat": "Written",
                             "refId": "B",
-                            "step": 11
+                            "step": 21
                         },
                         {
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_evicted_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "Evicted_{{type}}",
                             "refId": "A",
-                            "step": 11
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Page Create / Evict Rate",
+                    "title": "Mongod - WiredTiger Cache Page Write / Evict Rate",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -346,23 +346,23 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}/mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"max\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}/mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Cache Usage",
                             "refId": "A",
-                            "step": 11
+                            "step": 21
                         },
                         {
                             "expr": "mongodb_mongod_wiredtiger_cache_overhead_percent{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"} / 100",
                             "intervalFactor": 2,
                             "legendFormat": "Cache Overhead",
                             "refId": "B",
-                            "step": 11
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -420,7 +420,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -429,12 +429,88 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
-                            "step": 11
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Mongod - WiredTiger Cache Pages",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 60,
+                    "isNew": true,
+                    "leftYAxisLabel": "Opened",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_wiredtiger_session_open_cursors_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Open Cursors",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "refId": "A",
+                            "step": 21
+                        },
+                        {
+                            "expr": "mongodb_mongod_wiredtiger_session_open_sessions_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Open Sessions",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "refId": "B",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod - WiredTiger Sessions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -474,9 +550,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 54,
+                    "id": 59,
                     "isNew": true,
-                    "leftYAxisLabel": "Transactions",
+                    "leftYAxisLabel": "Operations / Sec",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -500,25 +576,16 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "irate(mongodb_mongod_wiredtiger_log_operations_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
-                            "legendFormat": "Total",
-                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "legendFormat": "{{type}}",
                             "refId": "A",
-                            "step": 11
-                        },
-                        {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Active",
-                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
-                            "refId": "B",
                             "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Concurrent Read Transactions",
+                    "title": "Mongod - WiredTiger Log Operations",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -531,6 +598,157 @@
                         "short"
                     ]
                 },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 58,
+                    "isNew": true,
+                    "leftYAxisLabel": "",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_wiredtiger_log_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "A",
+                            "step": 11
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod - WiredTiger Log Bytes",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "Bps",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 57,
+                    "isNew": true,
+                    "leftYAxisLabel": "",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "intervalFactor": 2,
+                            "legendFormat": "current",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "refId": "A",
+                            "step": 11
+                        },
+                        {
+                            "expr": "mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "refId": "B",
+                            "step": 11
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod - WiredTiger Checkpoint Time",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "ms",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -626,9 +844,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 57,
+                    "id": 54,
                     "isNew": true,
-                    "leftYAxisLabel": "",
+                    "leftYAxisLabel": "Transactions",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -652,17 +870,17 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "current",
+                            "legendFormat": "Total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
                             "step": 11
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
+                            "legendFormat": "Active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
                             "step": 11
@@ -670,7 +888,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Checkpoint Time",
+                    "title": "Mongod - WiredTiger Concurrent Read Transactions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -679,7 +897,7 @@
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "ms",
+                        "none",
                         "short"
                     ]
                 }
@@ -1553,6 +1771,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Mongod WiredTiger Dashboard",
+    "title": "MongoDB Mongod WiredTiger Dashboard Copy",
     "version": 3
 }

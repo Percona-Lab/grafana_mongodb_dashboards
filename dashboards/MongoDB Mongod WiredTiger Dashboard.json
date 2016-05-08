@@ -129,17 +129,17 @@
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Read",
+                            "legendFormat": "read",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"written\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Written",
+                            "legendFormat": "written",
                             "refId": "B",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -206,7 +206,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -281,14 +281,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Created",
                             "refId": "B",
-                            "step": 2
+                            "step": 11
                         },
                         {
                             "expr": "irate(mongodb_mongod_wiredtiger_cache_evicted_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "Evicted_{{type}}",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -351,18 +351,18 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_bytes_cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}/mongodb_mongod_wiredtiger_cache_bytes_max{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}/mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"max\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Cache Usage",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_percent_overhead{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"} / 100",
+                            "expr": "mongodb_mongod_wiredtiger_cache_overhead_percent{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"} / 100",
                             "intervalFactor": 2,
                             "legendFormat": "Cache Overhead",
                             "refId": "B",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -425,11 +425,11 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_current_pages{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_pages{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "Cache Pages",
+                            "legendFormat": "{{type}}",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -500,20 +500,20 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -576,20 +576,20 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -652,12 +652,20 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_total_chkp_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
-                            "legendFormat": "Checkpoint Time",
+                            "legendFormat": "current",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
+                        },
+                        {
+                            "expr": "mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
+                            "refId": "B",
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -733,7 +741,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "refId": "J",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -801,14 +809,14 @@
                             "legendFormat": "{{state}}",
                             "metric": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         },
                         {
                             "expr": "increase(mongodb_mongod_metrics_record_moves_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "moved",
                             "refId": "B",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -876,7 +884,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Ratio",
                             "refId": "J",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -952,7 +960,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Faults",
                             "refId": "J",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1020,7 +1028,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1088,7 +1096,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1163,21 +1171,21 @@
                             "intervalFactor": 2,
                             "legendFormat": "load1",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_load5{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load5",
                             "refId": "B",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_load15{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load15",
                             "refId": "C",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -1245,7 +1253,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "user",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1253,7 +1261,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "system",
                             "refId": "B",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1261,7 +1269,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "idle",
                             "refId": "D",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1269,7 +1277,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "iowait",
                             "refId": "C",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1277,7 +1285,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "other",
                             "refId": "E",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -1346,35 +1354,35 @@
                             "intervalFactor": 2,
                             "legendFormat": "available",
                             "refId": "B",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"} - node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "used",
                             "refId": "E",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
@@ -1441,14 +1449,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "read",
                             "refId": "A",
-                            "step": 2
+                            "step": 21
                         },
                         {
                             "expr": "sum(irate(node_disk_write_time_ms[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "write",
                             "refId": "B",
-                            "step": 2
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,

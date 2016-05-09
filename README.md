@@ -14,7 +14,7 @@ Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https
 1. A Grafana 2.0+ server (*http://grafana.org/*)
 1. The [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) for Prometheus on at least one Percona Server MongoDB or MongoDB instance
 1. The [node_exporter](https://github.com/prometheus/node_exporter) for Prometheus on each node running the [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter)
-1. "Target Group" labels in Prometheus server configuration file (See "[Prometheus Configuration](#prometheus-configuration)")
+1. "Target Group" labels in Prometheus server configuration file (*See "[Prometheus Configuration](#prometheus-configuration)"*)
 1. Prometheus is added as a Data Source to Grafana with the Data Source name "Prometheus" (*otherwise you need to change the "datasource" field in the templates*)
 
 ### Prometheus Configuration
@@ -57,17 +57,19 @@ Example target section for a mongos member (*notice no 'replset' label because i
 2. Configure Grafana to use Prometheus as a Data Source. Link: [Grafana Support for Prometheus: Using](https://prometheus.io/docs/visualization/grafana/#using)
 3. Install [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) on all nodes that run MongoDB. Link: [Readme](https://github.com/Percona-Lab/prometheus_mongodb_exporter)
 4. Install [node_exporter](https://github.com/prometheus/node_exporter) on all nodes that run the prometheus_mongodb_exporter. Link: [Readme](https://github.com/prometheus/node_exporter)
-5. For each instance to monitor, add 'targets' and 'labels' to the prometheus.yml file as described in '*Prometheus Configuration*' section above
+5. For each instance to monitor, add 'targets' and 'labels' to the prometheus.yml file as described in '*[Prometheus Configuration](#prometheus-configuration)*' section above
 6. Reload Prometheus configuration file (*"kill -HUP PID"*) or restart the Prometheus process/service
 7. Import each Grafana template file from the 'dashboards' subdir into Grafana's UI and press 'Save' after each import. Link: [Import/Export Templates (Grafana Docs)](http://docs.grafana.org/reference/export_import/)
 
 ### Roadmap
 
- - Add storage engine metrics for PerconaFT and RocksDB, when they're available in the exporter.
- - Automate/rethink target 'labels' in prometheus.yml (*used for grouping metrics in graphs*)
+- Add storage engine metrics for PerconaFT and RocksDB, when they're available in the exporter
+- Automate/rethink target 'labels' in prometheus.yml (*used for grouping metrics in graphs*)
+- Version scheme
 
 ### Contact
 
-- David Murphy - [Twitter](https://twitter.com/dmurphy_data) / [Email](mailto:david.murphy@percona.com)
-- Tim Vaillancourt - [Email](mailto:tim.vaillancourt@percona.com)
+- David Murphy - [Twitter](https://twitter.com/dmurphy_data) / [Github](https://github.com/dbmurphy) / [Email](mailto:david.murphy@percona.com)
+- Tim Vaillancourt - [Github](https://github.com/timvaillancourt) / [Email](mailto:tim.vaillancourt@percona.com)
 - Percona - [Twitter](https://twitter.com/Percona) / [Contact Page](https://www.percona.com/about-percona/contact)
+

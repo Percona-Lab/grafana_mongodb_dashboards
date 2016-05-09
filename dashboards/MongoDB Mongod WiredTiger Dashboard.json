@@ -51,7 +51,7 @@
                             "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}",
                             "intervalFactor": 2,
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -105,7 +105,7 @@
                             "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -160,7 +160,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -211,15 +211,15 @@
                     },
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[45s])) by (instance)",
+                            "expr": "avg(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "Avg Disk Write Latency",
                     "type": "singlestat",
                     "valueFontSize": "80%",
@@ -266,15 +266,15 @@
                     },
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[45s])) by (instance)",
+                            "expr": "avg(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "Avg Disk Read Latency",
                     "type": "singlestat",
                     "valueFontSize": "80%",
@@ -325,7 +325,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -924,7 +924,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": true,
                     "steppedLine": false,
                     "targets": [
@@ -990,8 +990,13 @@
                     "pointradius": 5,
                     "points": false,
                     "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 4,
+                    "seriesOverrides": [
+                        {
+                            "alias": "Percent Overhead",
+                            "yaxis": 2
+                        }
+                    ],
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1048,6 +1053,73 @@
                     },
                     "id": 56,
                     "isNew": true,
+                    "leftYAxisLabel": "",
+                    "legend": {
+                        "avg": false,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_wiredtiger_cache_overhead_percent{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Cache Overhead",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod - WiredTiger Cache Overhead",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "percent",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 68,
+                    "isNew": true,
                     "leftYAxisLabel": "Pages",
                     "legend": {
                         "avg": false,
@@ -1067,7 +1139,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -2067,7 +2139,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md[0-9])\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "read",
@@ -2075,7 +2147,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md[0-9])\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "write",
                             "refId": "B",

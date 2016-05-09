@@ -2067,7 +2067,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md[0-9])\"}[45s])) by (instance)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "read",
@@ -2075,7 +2075,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md[0-9])\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "write",
                             "refId": "B",

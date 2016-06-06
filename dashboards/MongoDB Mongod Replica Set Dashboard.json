@@ -3109,7 +3109,7 @@
                 "multiFormat": "glob",
                 "name": "replset",
                 "options": [],
-                "query": "mongodb_mongod_replset_member_config_version{cluster=~\"$cluster\",nodetype=\"mongod\"}",
+                "query": "mongodb_mongod_replset_my_state{cluster=~\"$cluster\",nodetype=\"mongod\"}",
                 "refresh": true,
                 "regex": "/,replset=\"(.+?)\"/",
                 "type": "query"

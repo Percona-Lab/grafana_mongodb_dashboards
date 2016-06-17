@@ -2309,9 +2309,8 @@
     "sharedCrosshair": false,
     "style": "dark",
     "tags": [
-        "mongodb",
-        "node",
-        "mongod"
+        "MongoDB",
+        "Percona"
     ],
     "templating": {
         "list": [

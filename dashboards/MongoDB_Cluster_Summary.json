@@ -1958,8 +1958,8 @@
     "sharedCrosshair": false,
     "style": "dark",
     "tags": [
-        "mongodb",
-        "cluster"
+        "MongoDB",
+        "Percona"
     ],
     "templating": {
         "list": [

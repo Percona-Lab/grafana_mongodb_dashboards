@@ -2011,6 +2011,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Cluster Summary Dashboard",
+    "title": "MongoDB Cluster Summary",
     "version": 1
 }

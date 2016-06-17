@@ -2250,6 +2250,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Mongod WiredTiger Dashboard",
+    "title": "MongoDB WiredTiger",
     "version": 3
 }

@@ -3164,6 +3164,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Mongod Replica Set Dashboard",
+    "title": "MongoDB Replica Set",
     "version": 1
 }

@@ -4,9 +4,9 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": null,
+    "id": 2,
     "links": [],
-    "originalTitle": "MongoDB Mongod Standalone Dashboard",
+    "originalTitle": "MongoDB Cluster Summary",
     "refresh": "10s",
     "rows": [
         {
@@ -24,11 +24,12 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
                     "format": "none",
                     "hideTimeOverride": true,
-                    "id": 50,
+                    "id": 39,
                     "interval": null,
                     "isNew": true,
                     "links": [],
@@ -39,7 +40,7 @@
                     "postfixFontSize": "50%",
                     "prefix": "",
                     "prefixFontSize": "50%",
-                    "span": 2,
+                    "span": 1,
                     "sparkline": {
                         "fillColor": "rgba(31, 118, 189, 0.18)",
                         "full": false,
@@ -48,17 +49,16 @@
                     },
                     "targets": [
                         {
-                            "expr": "node_load1{alias=\"$mongod\"}",
+                            "expr": "max(mongodb_mongos_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"unpartitioned\"}) by (cluster)",
                             "intervalFactor": 2,
-                            "legendFormat": "",
-                            "metric": "",
+                            "legendFormat": "Shards",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "thresholds": "",
                     "timeFrom": "1m",
-                    "title": "Current Linux Load Avg",
+                    "title": "Unsharded DBs",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [],
@@ -74,11 +74,12 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "format": "percentunit",
+                    "format": "none",
                     "hideTimeOverride": true,
-                    "id": 53,
+                    "id": 35,
                     "interval": null,
                     "isNew": true,
                     "links": [],
@@ -89,7 +90,7 @@
                     "postfixFontSize": "50%",
                     "prefix": "",
                     "prefixFontSize": "50%",
-                    "span": 2,
+                    "span": 1,
                     "sparkline": {
                         "fillColor": "rgba(31, 118, 189, 0.18)",
                         "full": false,
@@ -98,17 +99,16 @@
                     },
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "expr": "max(mongodb_mongos_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"partitioned\"}) by (cluster)",
                             "intervalFactor": 2,
-                            "legendFormat": "",
-                            "metric": "",
+                            "legendFormat": "Shards",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "thresholds": "",
                     "timeFrom": "1m",
-                    "title": "Current User CPU %",
+                    "title": "Sharded DBs",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [],
@@ -124,11 +124,12 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "format": "percentunit",
+                    "format": "none",
                     "hideTimeOverride": true,
-                    "id": 59,
+                    "id": 10,
                     "interval": null,
                     "isNew": true,
                     "links": [],
@@ -148,17 +149,16 @@
                     },
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "expr": "max(mongodb_mongos_sharding_collections_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
                             "intervalFactor": 2,
-                            "legendFormat": "",
-                            "metric": "",
+                            "legendFormat": "Shards",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "thresholds": "",
                     "timeFrom": "1m",
-                    "title": "Current System CPU %",
+                    "title": "Sharded Collections",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [],
@@ -174,11 +174,12 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "format": "percentunit",
+                    "format": "none",
                     "hideTimeOverride": true,
-                    "id": 60,
+                    "id": 36,
                     "interval": null,
                     "isNew": true,
                     "links": [],
@@ -198,17 +199,16 @@
                     },
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "expr": "max(mongodb_mongos_sharding_shards_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
                             "intervalFactor": 2,
-                            "legendFormat": "",
-                            "metric": "",
+                            "legendFormat": "Shards",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "thresholds": "",
                     "timeFrom": "1m",
-                    "title": "Current IO Wait CPU %",
+                    "title": "Shards",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [],
@@ -224,11 +224,12 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "format": "percentunit",
+                    "format": "none",
                     "hideTimeOverride": true,
-                    "id": 58,
+                    "id": 11,
                     "interval": null,
                     "isNew": true,
                     "links": [],
@@ -248,21 +249,405 @@
                     },
                     "targets": [
                         {
-                            "expr": "1-((node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}))/node_memory_MemTotal{alias=\"$mongod\"})",
+                            "expr": "max(mongodb_mongos_sharding_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "interval": "",
                             "intervalFactor": 2,
-                            "legendFormat": "",
-                            "metric": "",
+                            "legendFormat": "Chunks",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "thresholds": "",
                     "timeFrom": "1m",
-                    "title": "Current Memory Used %",
+                    "title": "Chunks",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [],
                     "valueName": "avg"
+                },
+                {
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 0,
+                    "editable": true,
+                    "error": false,
+                    "format": "none",
+                    "hideTimeOverride": true,
+                    "id": 40,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "count(mongodb_mongos_sharding_mongos_uptime_seconds{cluster=\"$cluster\",nodetype=\"mongos\"}) by (name)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Cluster Balanced",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Mongos Processes",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
+                {
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": null,
+                    "editable": true,
+                    "error": false,
+                    "format": "none",
+                    "hideTimeOverride": true,
+                    "id": 5,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 1,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "max(mongodb_mongos_sharding_balancer_enabled{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Cluster Balanced",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Balancer Enabled",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [
+                        {
+                            "op": "=",
+                            "text": "YES",
+                            "value": "1"
+                        },
+                        {
+                            "op": "=",
+                            "text": "NO",
+                            "value": "0"
+                        }
+                    ],
+                    "valueName": "avg"
+                },
+                {
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 0,
+                    "editable": true,
+                    "error": false,
+                    "format": "none",
+                    "hideTimeOverride": true,
+                    "id": 4,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 1,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "min(mongodb_mongos_sharding_chunks_is_balanced{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Cluster Balanced",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Chunks Balanced",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [
+                        {
+                            "op": "=",
+                            "text": "YES",
+                            "value": "1"
+                        },
+                        {
+                            "op": "=",
+                            "text": "NO",
+                            "value": "0"
+                        }
+                    ],
+                    "valueName": "avg"
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 6,
+                    "isNew": true,
+                    "leftYAxisLabel": "Operations / Sec",
+                    "legend": {
+                        "avg": true,
+                        "current": true,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(mongodb_mongos_op_counters_total{cluster=\"$cluster\",nodetype=\"mongos\",type!=\"command\"}[1m])) by (type)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Operations",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 7,
+                    "isNew": true,
+                    "leftYAxisLabel": "Connections",
+                    "legend": {
+                        "avg": true,
+                        "current": false,
+                        "max": true,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(mongodb_mongos_connections{cluster=\"$cluster\",nodetype=\"mongos\",state=\"current\"}) by (state)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "Current",
+                            "refId": "J",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Connections",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 31,
+                    "isNew": true,
+                    "leftYAxisLabel": "Cursors",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(mongodb_mongos_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongos\"}) by (state)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{state}}",
+                            "refId": "J",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Cursors",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
                 }
             ],
             "title": "New row"
@@ -291,9 +676,85 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 15,
+                    "id": 30,
                     "isNew": true,
                     "leftYAxisLabel": "Operations / Sec",
+                    "legend": {
+                        "avg": true,
+                        "current": true,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=\"mongod\",type!=\"command\"}[1m])) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "J",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=\"config\",type!=\"command\"}[1m])) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod Replica Set - Operations",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 37,
+                    "isNew": true,
+                    "leftYAxisLabel": "Connections",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -312,25 +773,33 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 12,
-                    "stack": true,
+                    "span": 3,
+                    "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
+                            "expr": "sum(mongodb_mongod_connections{cluster=\"$cluster\",nodetype=\"mongod\",state=\"current\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
-                            "refId": "J",
-                            "step": 2
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "A",
+                            "step": 21
+                        },
+                        {
+                            "expr": "sum(mongodb_mongod_connections{cluster=\"$cluster\",nodetype=\"config\",state=\"current\"}) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
+                            "refId": "B",
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Client Operations",
+                    "title": "Mongod Replica Set - Connections",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "individual"
+                        "value_type": "cumulative"
                     },
                     "type": "graph",
                     "x-axis": true,
@@ -339,15 +808,7 @@
                         "short",
                         "short"
                     ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
+                },
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -388,30 +849,107 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total_open\"}) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "J",
+                            "step": 21
+                        },
+                        {
+                            "expr": "sum(mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"config\",state=\"total_open\"}) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
+                            "refId": "A",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod Replica Set - Cursors",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 26,
+                    "isNew": true,
+                    "leftYAxisLabel": "Connections/Sec",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
                     "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_cursors{alias=\"$mongod\",state=\"total_open\"}",
+                            "expr": "sum(irate(mongodb_mongos_connections_metrics_created_total{cluster=\"$cluster\",nodetype=\"mongos\"}[1m])) by (cluster)",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Open",
+                            "legendFormat": "Connections Created",
                             "refId": "J",
-                            "step": 11
-                        },
-                        {
-                            "expr": "mongodb_mongod_metrics_cursor_timed_out_total{alias=\"$mongod\"}",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "Timeout",
-                            "refId": "A",
                             "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Cursors",
+                    "title": "Mongos - Connections Created",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -428,6 +966,233 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 0,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 41,
+                    "isNew": true,
+                    "leftYAxisLabel": "Chunks",
+                    "legend": {
+                        "avg": false,
+                        "current": true,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "Total",
+                            "fill": 0,
+                            "stack": false
+                        }
+                    ],
+                    "span": 4,
+                    "stack": true,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongos_sharding_shard_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{shard}}",
+                            "refId": "A",
+                            "step": 11
+                        },
+                        {
+                            "expr": "mongodb_mongos_sharding_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Total",
+                            "refId": "B",
+                            "step": 11
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Chunks by Shard",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 0,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 2,
+                    "isNew": true,
+                    "leftYAxisLabel": "Events",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "round(max(increase(mongodb_mongos_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"moveChunk\"}[1m])) by (event))",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{event}}",
+                            "refId": "A",
+                            "step": 11
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Balancer Move Events",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 0,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 3,
+                    "isNew": true,
+                    "leftYAxisLabel": "Events",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "round(max(increase(mongodb_mongos_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"split\"}[1m])) by (event))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{event}}",
+                            "refId": "J",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Split Events",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
                     "fill": 1,
@@ -445,7 +1210,7 @@
                     },
                     "id": 38,
                     "isNew": true,
-                    "leftYAxisLabel": "Connections",
+                    "leftYAxisLabel": "Events",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -464,22 +1229,21 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_connections{alias=~\"$mongod\",state=\"current\"}",
-                            "hide": false,
+                            "expr": "round(max(increase(mongodb_mongos_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"(shard|Shard)\"}[1m])) by (event))",
                             "intervalFactor": 2,
-                            "legendFormat": "Current Connections",
-                            "refId": "J",
-                            "step": 11
+                            "legendFormat": "{{event}}",
+                            "refId": "A",
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Connections",
+                    "title": "Mongos - Sharding Events",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -488,7 +1252,7 @@
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "none",
+                        "short",
                         "short"
                     ]
                 },
@@ -496,13 +1260,98 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": 1,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)",
+                        "thresholdLine": false
+                    },
+                    "id": 43,
+                    "isNew": true,
+                    "leftYAxisLabel": "False (0) / True (1)",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null as zero",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "Unlocked",
+                            "fill": 0,
+                            "lines": false
+                        }
+                    ],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": true,
+                    "targets": [
+                        {
+                            "expr": "max(count(mongodb_mongos_sharding_balancer_lock_state{cluster=\"$cluster\",nodetype=\"mongos\"}==1) by (name))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "Lock Contention",
+                            "refId": "A",
+                            "step": 21
+                        },
+                        {
+                            "expr": "max(count(mongodb_mongos_sharding_balancer_lock_state{cluster=\"$cluster\",nodetype=\"mongos\"}==2) by (name))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "Locked",
+                            "refId": "B",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongos - Balancer Locks",
+                    "tooltip": {
+                        "shared": false,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "fill": 1,
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
-                        "leftMin": 0,
+                        "leftMin": null,
                         "rightLogBase": 1,
                         "rightMax": null,
                         "rightMin": null,
@@ -511,9 +1360,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 61,
+                    "id": 44,
                     "isNew": true,
-                    "leftYAxisLabel": "Connections / Sec",
+                    "leftYAxisLabel": "",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -526,37 +1375,37 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "connected",
+                    "nullPointMode": "null as zero",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 3,
                     "stack": false,
-                    "steppedLine": false,
+                    "steppedLine": true,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_connections_metrics_created_total{alias=\"$mongod\"}[45s])",
+                            "expr": "time()-max(mongodb_mongos_sharding_balancer_lock_timestamp{cluster=\"$cluster\",nodetype=\"mongos\"}) by (name)",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Connection Rate",
+                            "legendFormat": "{{name}}",
                             "refId": "J",
-                            "step": 11
+                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Connection Rate",
+                    "title": "Mongos - Balancer Lock Updates",
                     "tooltip": {
-                        "shared": true,
+                        "shared": false,
                         "value_type": "cumulative"
                     },
                     "type": "graph",
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "none",
+                        "s",
                         "short"
                     ]
                 }
@@ -587,9 +1436,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 36,
+                    "id": 12,
                     "isNew": true,
-                    "leftYAxisLabel": "Documents / Sec",
+                    "leftYAxisLabel": "Events",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -613,92 +1462,16 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{alias=\"$mongod\"}[45s])",
-                            "hide": false,
+                            "expr": "max(changes(mongodb_mongod_replset_member_election_date{cluster=\"$cluster\",nodetype=\"mongod\"}[1m])) by (replset)",
                             "intervalFactor": 2,
-                            "legendFormat": "{{state}}",
-                            "refId": "J",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - Document Changes",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 32,
-                    "isNew": true,
-                    "leftYAxisLabel": "Objects / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_metrics_query_executor_total{alias=\"$mongod\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "{{state}}",
-                            "metric": "",
+                            "legendFormat": "rs-{{replset}}",
                             "refId": "A",
                             "step": 21
-                        },
-                        {
-                            "expr": "irate(mongodb_mongod_metrics_record_moves_total{alias=\"$mongod\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "moved",
-                            "refId": "B",
-                            "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Scanned and Moved",
+                    "title": "Mongod Replica Set - Shard Elections",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -730,7 +1503,7 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 34,
+                    "id": 14,
                     "isNew": true,
                     "leftYAxisLabel": "",
                     "legend": {
@@ -756,17 +1529,16 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_ratio{alias=\"$mongod\"}",
-                            "hide": false,
+                            "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"PRIMARY\"}) by (replset)-min(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"SECONDARY\"}) by (replset)",
                             "intervalFactor": 2,
-                            "legendFormat": "Lock Ratio",
-                            "refId": "J",
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "A",
                             "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Lock Ratio",
+                    "title": "Mongod Replica Set - Replication Lag",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -775,7 +1547,75 @@
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "none",
+                        "s",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 27,
+                    "isNew": true,
+                    "leftYAxisLabel": "",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 3,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "max(mongodb_mongod_replset_oplog_head_timestamp-mongodb_mongod_replset_oplog_tail_timestamp) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "J",
+                            "step": 21
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Mongod Replica Set - Oplog Length",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "s",
                         "short"
                     ]
                 },
@@ -824,17 +1664,25 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_locks_time_locked_global_microseconds_total{alias=\"$mongod\",database=\"Collection\"}",
+                            "expr": "max(mongodb_mongod_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",database=\"Collection\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
+                            "legendFormat": "rs-{{replset}}",
                             "refId": "J",
+                            "step": 21
+                        },
+                        {
+                            "expr": "max(mongodb_mongod_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"config\",database=\"Collection\"}) by (replset)",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
+                            "refId": "A",
                             "step": 21
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Collection Lock Time",
+                    "title": "Mongod Replica Set - Collection Lock Time",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -864,7 +1712,7 @@
                     "fill": 1,
                     "grid": {
                         "leftLogBase": 1,
-                        "leftMax": null,
+                        "leftMax": 1,
                         "leftMin": 0,
                         "rightLogBase": 1,
                         "rightMax": null,
@@ -874,368 +1722,7 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 39,
-                    "isNew": true,
-                    "leftYAxisLabel": "Page Faults",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=\"$mongod\"}[45s])",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "faults",
-                            "refId": "J",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - Page Faults",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 40,
-                    "isNew": true,
-                    "leftYAxisLabel": "Operations",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_global_lock_current_queue{alias=\"$mongod\"}",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
-                            "refId": "J",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - Queued Operations",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 2,
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 41,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{alias=~\"$mongod\"}[1m])",
-                            "hide": false,
-                            "interval": "",
-                            "intervalFactor": 2,
-                            "legendFormat": "Write Wait Time",
-                            "refId": "J",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - getLastError Write Time",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "ms",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 2,
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 62,
-                    "isNew": true,
-                    "leftYAxisLabel": "Operations / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{alias=~\"$mongod\"}[1m])",
-                            "hide": false,
-                            "interval": "",
-                            "intervalFactor": 2,
-                            "legendFormat": "Total",
-                            "refId": "J",
-                            "step": 21
-                        },
-                        {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
-                            "hide": false,
-                            "interval": "",
-                            "intervalFactor": 2,
-                            "legendFormat": "Timeouts",
-                            "refId": "A",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - getLastError Write Operations",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 37,
-                    "isNew": true,
-                    "leftYAxisLabel": "Event",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 4,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "round(increase(mongodb_mongod_asserts_total{alias=\"$mongod\"}[45s]))",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
-                            "refId": "J",
-                            "step": 11
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - Assert Events",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 33,
+                    "id": 34,
                     "isNew": true,
                     "leftYAxisLabel": "",
                     "legend": {
@@ -1261,34 +1748,42 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(mongodb_mongod_network_bytes_total{alias=\"$mongod\"}[45s]))",
+                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",mode=\"idle\"}[1m])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\"}[1m])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Total Usage",
-                            "refId": "A",
+                            "legendFormat": "mongos",
+                            "refId": "D",
                             "step": 11
                         },
                         {
-                            "expr": "irate(mongodb_mongod_metrics_repl_network_bytes_total{alias=\"$mongod\"}[45s])",
+                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",mode=\"idle\"}[1m])) by (replset)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\"}[1m])) by (replset))",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "Replication Usage",
-                            "refId": "J",
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "H",
+                            "step": 11
+                        },
+                        {
+                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"config\",mode=\"idle\"}[1m])) by (replset)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"config\"}[1m])) by (replset))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
+                            "refId": "A",
                             "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Network Usage",
+                    "title": "Linux - CPU Usage",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "cumulative"
+                        "value_type": "individual"
                     },
                     "type": "graph",
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "Bps",
+                        "percentunit",
                         "short"
                     ]
                 },
@@ -1302,89 +1797,7 @@
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 64,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 4,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_memory{alias=\"$mongod\",type=\"resident\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Resident",
-                            "refId": "A",
-                            "step": 11
-                        },
-                        {
-                            "expr": "mongodb_mongod_memory{alias=\"$mongod\",type=\"mapped\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Mapped",
-                            "refId": "B",
-                            "step": 11
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - Memory",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "mbytes",
-                        "short"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
+                        "leftMin": null,
                         "rightLogBase": 1,
                         "rightMax": null,
                         "rightMin": null,
@@ -1414,30 +1827,31 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_load1{alias=\"$mongod\"}",
+                            "expr": "max(node_load1{cluster=\"$cluster\",nodetype=\"mongos\"}) by (group)",
+                            "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "load1",
+                            "legendFormat": "mongos",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
-                            "expr": "node_load5{alias=\"$mongod\"}",
+                            "expr": "max(node_load1{cluster=\"$cluster\",nodetype=\"mongod\"}) by (replset)",
                             "intervalFactor": 2,
-                            "legendFormat": "load5",
+                            "legendFormat": "rs-{{replset}}",
+                            "refId": "D",
+                            "step": 11
+                        },
+                        {
+                            "expr": "max(node_load1{cluster=\"$cluster\",nodetype=\"config\"}) by (replset)",
+                            "intervalFactor": 2,
+                            "legendFormat": "config",
                             "refId": "B",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_load15{alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "load15",
-                            "refId": "C",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1474,7 +1888,7 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 43,
+                    "id": 33,
                     "isNew": true,
                     "leftYAxisLabel": "",
                     "legend": {
@@ -1495,809 +1909,44 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
-                    "stack": true,
+                    "span": 4,
+                    "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                            "hide": false,
+                            "expr": "1-(avg(node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongos\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongos\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongos\"})) by (cluster)/avg(node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
                             "intervalFactor": 2,
-                            "legendFormat": "user",
+                            "legendFormat": "mongos",
+                            "refId": "I",
+                            "step": 11
+                        },
+                        {
+                            "expr": "1-(avg(node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongod\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongos\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongos\"})) by (replset)/avg(node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongod\"}) by (replset))",
+                            "intervalFactor": 2,
+                            "legendFormat": "rs-{{replset}}",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                            "hide": false,
+                            "expr": "1-(avg(node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"config\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=\"config\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongos\"})) by (cluster)/avg(node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"config\"}) by (cluster))",
                             "intervalFactor": 2,
-                            "legendFormat": "system",
+                            "legendFormat": "config",
                             "refId": "B",
-                            "step": 21
-                        },
-                        {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "idle",
-                            "refId": "D",
-                            "step": 21
-                        },
-                        {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "iowait",
-                            "refId": "C",
-                            "step": 21
-                        },
-                        {
-                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "other",
-                            "refId": "E",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Linux - CPU %",
+                    "title": "Linux - Memory Used",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "individual"
+                        "value_type": "cumulative"
                     },
                     "type": "graph",
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
                         "percentunit",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 2,
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 69,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "hideZero": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"})",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "available",
-                            "refId": "B",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_memory_MemTotal{nodetype=\"mongod\",alias=\"$mongod\"}-(node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}))",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "used",
-                            "refId": "E",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_memory_MemTotal{nodetype=\"mongod\",alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "total",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "buffers",
-                            "refId": "C",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "cached",
-                            "refId": "D",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Memory",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "bytes",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 66,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_memory_Mapped{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Mapped",
-                            "refId": "A",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Memory Mapping Rate (MMAP)",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 51,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_disk_read_time_ms[45s])) by (instance)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Read",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_disk_write_time_ms[45s])) by (instance)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Write",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Disk IO Time Spent",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "ms",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 65,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_disk_bytes_read{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Read",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_disk_bytes_written{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Written",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Disk IO Bytes",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 70,
-                    "isNew": true,
-                    "leftYAxisLabel": "Processes",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "node_procs_running{alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Running",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "node_procs_blocked{alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Blocked",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Processes",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 71,
-                    "isNew": true,
-                    "leftYAxisLabel": "Forks / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(node_forks{alias=\"$mongod\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "Forks",
-                            "refId": "C",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Fork Rate",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 2,
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 44,
-                    "isNew": true,
-                    "leftYAxisLabel": "Context Switches / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "hideZero": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(node_context_switches{alias=\"$mongod\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "Context Switches",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Context Switches",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 72,
-                    "isNew": true,
-                    "leftYAxisLabel": "Connections",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "node_netstat_Tcp_CurrEstab{alias=\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Established",
-                            "refId": "A",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Network Connections",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 67,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_network_receive_bytes{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Received",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_network_transmit_bytes{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Transmitted",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Network Bytes",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 68,
-                    "isNew": true,
-                    "leftYAxisLabel": "Packets / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_network_receive_packets{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packets Total",
-                            "refId": "C",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packets Dropped",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packet Errors",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Network Packets",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
                         "short"
                     ]
                 }
@@ -2310,8 +1959,7 @@
     "style": "dark",
     "tags": [
         "mongodb",
-        "node",
-        "mongod"
+        "cluster"
     ],
     "templating": {
         "list": [
@@ -2320,17 +1968,15 @@
                 "current": {},
                 "datasource": "Prometheus",
                 "includeAll": false,
-                "label": "Mongod Instance",
+                "label": "Cluster Name",
                 "multi": false,
                 "multiFormat": "glob",
-                "name": "mongod",
+                "name": "cluster",
                 "options": [],
-                "query": "mongodb_mongod_connections{}",
+                "query": "label_values(cluster)",
                 "refresh": true,
-                "regex": "/alias=\"(.+?)\"/",
-                "tagsQuery": "",
-                "type": "query",
-                "useTags": false
+                "regex": "",
+                "type": "query"
             }
         ]
     },
@@ -2365,6 +2011,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Mongod Standalone Dashboard",
+    "title": "MongoDB Cluster Summary",
     "version": 1
 }

@@ -6,7 +6,7 @@
     "hideControls": false,
     "id": 2,
     "links": [],
-    "originalTitle": "MongoDB Mongos Dashboard",
+    "originalTitle": "MongoDB Mongos Instance",
     "refresh": "10s",
     "rows": [
         {
@@ -1978,6 +1978,6 @@
         ]
     },
     "timezone": "utc",
-    "title": "MongoDB Mongos Dashboard",
+    "title": "MongoDB Mongos Instance",
     "version": 1
 }

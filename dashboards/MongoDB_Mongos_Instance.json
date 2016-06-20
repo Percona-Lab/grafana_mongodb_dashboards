@@ -15,7 +15,7 @@
             "height": "25px",
             "panels": [
                 {
-                    "content": "Dashboard built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
+                    "content": "Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
                     "editable": true,
                     "error": false,
                     "height": "",

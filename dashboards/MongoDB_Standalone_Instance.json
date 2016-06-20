@@ -248,7 +248,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "1-((node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}))/node_memory_MemTotal{alias=\"$mongod\"})",
+                            "expr": "1-((node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))/node_memory_MemTotal{alias=\"$mongod\"})",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "metric": "",
@@ -1602,7 +1602,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"})",
+                            "expr": "node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"})",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "available",
@@ -1610,7 +1610,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_MemTotal{nodetype=\"mongod\",alias=\"$mongod\"}-(node_memory_MemAvailable{nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}))",
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "used",
@@ -1618,21 +1618,21 @@
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_MemTotal{nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_Buffers{nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_Buffers{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_Cached{nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_Cached{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
@@ -1766,14 +1766,14 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_read_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
                             "step": 21
                         },
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "Write",
                             "refId": "B",

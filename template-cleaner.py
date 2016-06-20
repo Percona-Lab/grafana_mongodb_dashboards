@@ -55,11 +55,11 @@ if os.path.isfile(fileName):
 	tmpFileName = fileName + ".tmp"
 	tmpFh = open(tmpFileName, "w")
 	jsonOut = json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
-	tmpFh.write(jsonOut)
+	tmpFh.write("%s\n" % jsonOut)
 	tmpFh.close()
 
 	os.rename(tmpFileName, fileName)
-	print "OK"
+	print "Cleaned template: %s" % fileName
 else:
 	print "ERROR: cannot find file!"
 	sys.exit(1)

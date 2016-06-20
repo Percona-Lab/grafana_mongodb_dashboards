@@ -15,6 +15,30 @@
             "height": "25px",
             "panels": [
                 {
+                    "content": "Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
+                    "editable": true,
+                    "error": false,
+                    "height": "",
+                    "id": 45,
+                    "isNew": true,
+                    "links": [],
+                    "mode": "text",
+                    "span": 12,
+                    "style": {
+                        "font-size": "10pt"
+                    },
+                    "title": "",
+                    "type": "text"
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "25px",
+            "panels": [
+                {
                     "cacheTimeout": null,
                     "colorBackground": false,
                     "colorValue": false,

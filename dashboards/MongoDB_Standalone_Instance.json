@@ -1766,14 +1766,14 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_read_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
                             "step": 21
                         },
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "Write",
                             "refId": "B",

@@ -156,7 +156,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "node_memory_Cached{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -211,7 +211,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "avg(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
+                            "expr": "avg(irate(node_disk_write_time_ms{alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -266,7 +266,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "avg(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
+                            "expr": "avg(irate(node_disk_read_time_ms{alias=~\"$mongod\",device=~\"(sd|xvd|hd)[a-z]\"}[5m])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -321,7 +321,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "1-(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -1861,21 +1861,21 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_load1{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "node_load1{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load1",
                             "refId": "A",
                             "step": 21
                         },
                         {
-                            "expr": "node_load5{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "node_load5{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load5",
                             "refId": "B",
                             "step": 21
                         },
                         {
-                            "expr": "node_load15{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "node_load15{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load15",
                             "refId": "C",
@@ -1942,7 +1942,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "user",
@@ -1950,7 +1950,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "system",
@@ -1958,7 +1958,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "idle",
@@ -1966,7 +1966,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "iowait",
@@ -1974,7 +1974,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "other",
@@ -2044,7 +2044,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"})",
+                            "expr": "node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"})",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "available",
@@ -2052,7 +2052,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"}-(node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"}))",
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "used",
@@ -2060,21 +2060,21 @@
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_Buffers{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_Buffers{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
                             "step": 21
                         },
                         {
-                            "expr": "node_memory_Cached{cluster=\"$cluster\",nodetype=\"mongod\",alias=\"$mongod\"}",
+                            "expr": "node_memory_Cached{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
@@ -2141,7 +2141,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(node_disk_read_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_read_time_ms{alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "read",
@@ -2149,7 +2149,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "sum(irate(node_disk_write_time_ms{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
+                            "expr": "sum(irate(node_disk_write_time_ms{alias=~\"$mongod\",device=~\"(sd[a-z]|xvd[a-z]|hd[a-z]|cciss|md)\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "write",
                             "refId": "B",

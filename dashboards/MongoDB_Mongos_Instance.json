@@ -1328,7 +1328,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_load1{cluster=\"$cluster\",nodetype=\"mongos\",alias=~\"$mongos\"}",
+                            "expr": "node_load1{alias=~\"$mongos\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "load1",
@@ -1336,7 +1336,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "node_load5{cluster=\"$cluster\",nodetype=\"mongos\",alias=~\"$mongos\"}",
+                            "expr": "node_load5{alias=~\"$mongos\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "load5",
@@ -1344,7 +1344,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "node_load15{cluster=\"$cluster\",nodetype=\"mongos\",alias=~\"$mongos\"}",
+                            "expr": "node_load15{alias=~\"$mongos\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "load15",
@@ -1412,7 +1412,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongos\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongos\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "User",
@@ -1420,7 +1420,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongos\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongos\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "System",
@@ -1428,7 +1428,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongos\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongos\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Idle",
@@ -1436,7 +1436,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongos\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongos\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Iowait",
@@ -1444,7 +1444,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",alias=\"$mongos\"}[45s])) by (alias))",
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongos\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongos\"}[45s])) by (alias))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Other",
@@ -1512,7 +1512,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "node_memory_MemAvailable{cluster=\"$cluster\",nodetype=\"mongos\",alias=~\"$mongos\"}",
+                            "expr": "node_memory_MemAvailable{alias=~\"$mongos\"}",
                             "interval": "",
                             "intervalFactor": 2,
                             "legendFormat": "Available",
@@ -1520,7 +1520,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=\"mongos\",alias=~\"$mongos\"}",
+                            "expr": "node_memory_MemTotal{alias=~\"$mongos\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "refId": "A",

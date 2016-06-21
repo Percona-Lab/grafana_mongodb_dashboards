@@ -2233,7 +2233,7 @@
                 "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
-                "query": "mongodb_mongod_connections{cluster=~\"$cluster\",nodetype=\"mongod\"}",
+                "query": "mongodb_mongod_wiredtiger_transactions_total{cluster=~\"$cluster\"}",
                 "refresh": true,
                 "regex": "/alias=\"(.+?)\"/",
                 "tagsQuery": "",

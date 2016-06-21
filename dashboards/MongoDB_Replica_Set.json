@@ -3123,10 +3123,10 @@
                 "type": "query"
             },
             {
-                "allFormat": "pipe",
+                "allFormat": "glob",
                 "current": {},
                 "datasource": "Prometheus",
-                "includeAll": true,
+                "includeAll": false,
                 "label": "Replica Set",
                 "multi": false,
                 "multiFormat": "glob",

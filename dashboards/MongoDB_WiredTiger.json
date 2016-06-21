@@ -72,7 +72,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"total\"}",
                             "intervalFactor": 2,
                             "refId": "A",
                             "step": 2
@@ -126,7 +126,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "refId": "A",
                             "step": 2
@@ -419,7 +419,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -486,7 +486,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"read\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "read",
@@ -494,7 +494,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"written\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_cache_bytes_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"written\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "written",
@@ -562,7 +562,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_blockmanager_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_blockmanager_bytes_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -637,7 +637,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_session_open_cursors_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_session_open_cursors_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Cursors",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -645,7 +645,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_session_open_sessions_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_session_open_sessions_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Sessions",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -713,7 +713,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -721,7 +721,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"write\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -789,7 +789,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -797,7 +797,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"read\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"read\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -869,7 +869,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "current",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -877,7 +877,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_transactions_checkpoint_milliseconds{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -953,7 +953,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_cache_evicted_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_cache_evicted_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1025,7 +1025,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Maximum",
@@ -1033,7 +1033,7 @@
                             "step": 21
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\",type=\"total\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_bytes{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\",type=\"total\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Used",
@@ -1101,7 +1101,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_overhead_percent{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_overhead_percent{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Cache Overhead",
                             "refId": "A",
@@ -1168,7 +1168,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_cache_pages{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_wiredtiger_cache_pages{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1243,7 +1243,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_log_operations_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_log_operations_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1310,7 +1310,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_log_bytes_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_log_bytes_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1378,7 +1378,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_wiredtiger_log_records_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_wiredtiger_log_records_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
@@ -1454,7 +1454,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_metrics_document_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -1522,7 +1522,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "metric": "",
@@ -1530,7 +1530,7 @@
                             "step": 11
                         },
                         {
-                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "moved",
                             "refId": "B",
@@ -1597,7 +1597,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_ratio{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_global_lock_ratio{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Ratio",
@@ -1673,7 +1673,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Faults",
@@ -1741,7 +1741,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_current_queue{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_global_lock_current_queue{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -1809,7 +1809,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_asserts_total{cluster=\"$cluster\",nodetype=\"mongod\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_asserts_total{cluster=\"$cluster\",nodetype=\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -2233,7 +2233,7 @@
                 "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
-                "query": "mongodb_mongod_wiredtiger_transactions_total{cluster=~\"$cluster\"}",
+                "query": "mongodb_mongod_wiredtiger_transactions_total{cluster=~\"$cluster\",nodetype=~\"(config|mongod)\"}",
                 "refresh": true,
                 "regex": "/alias=\"(.+?)\"/",
                 "tagsQuery": "",

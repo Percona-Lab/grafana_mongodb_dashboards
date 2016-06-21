@@ -374,7 +374,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_balancer_enabled{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "expr": "round(max(mongodb_mongos_sharding_balancer_enabled{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
                             "intervalFactor": 2,
                             "legendFormat": "Cluster Balanced",
                             "refId": "A",
@@ -435,7 +435,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "min(mongodb_mongos_sharding_chunks_is_balanced{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "expr": "round(min(mongodb_mongos_sharding_chunks_is_balanced{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
                             "intervalFactor": 2,
                             "legendFormat": "Cluster Balanced",
                             "refId": "A",

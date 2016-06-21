@@ -3108,10 +3108,10 @@
     "templating": {
         "list": [
             {
-                "allFormat": "pipe",
+                "allFormat": "blob",
                 "current": {},
                 "datasource": "Prometheus",
-                "includeAll": true,
+                "includeAll": false,
                 "label": "Cluster",
                 "multi": false,
                 "multiFormat": "glob",

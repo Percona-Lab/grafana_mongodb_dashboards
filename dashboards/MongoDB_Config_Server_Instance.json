@@ -2416,10 +2416,10 @@
     "templating": {
         "list": [
             {
-                "allFormat": "pipe",
+                "allFormat": "glob",
                 "current": {},
                 "datasource": "Prometheus",
-                "includeAll": true,
+                "includeAll": false,
                 "label": "Cluster",
                 "multi": false,
                 "multiFormat": "glob",

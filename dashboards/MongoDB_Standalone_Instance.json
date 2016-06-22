@@ -569,19 +569,11 @@
               "steppedLine": false,
               "targets": [
                 {
-                  "expr": "mongodb_mongod_cursors{alias=\"$mongod\",state=\"total_open\"}",
+                  "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"}",
                   "hide": false,
                   "intervalFactor": 2,
-                  "legendFormat": "Open",
+                  "legendFormat": "{{state}}",
                   "refId": "J",
-                  "step": 2
-                },
-                {
-                  "expr": "mongodb_mongod_metrics_cursor_timed_out_total{alias=\"$mongod\"}",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "Timeout",
-                  "refId": "A",
                   "step": 2
                 }
               ],

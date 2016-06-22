@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 6,
+    "id": 7,
     "links": [],
     "originalTitle": "MongoDB WiredTiger",
     "refresh": "10s",
@@ -375,13 +375,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -406,7 +406,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Transactions",
+                    "title": "WiredTiger Transactions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -484,7 +484,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Activity",
+                    "title": "WiredTiger Cache Activity",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -561,7 +561,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger BlockManager Activity",
+                    "title": "WiredTiger Block Activity",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -599,13 +599,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -639,7 +639,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Open Sessions",
+                    "title": "WiredTiger Sessions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -728,7 +728,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Transactions",
+                    "title": "WiredTiger Transactions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -818,7 +818,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Checkpoint Time",
+                    "title": "WiredTiger Checkpoint Time",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -856,13 +856,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -887,7 +887,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Eviction Rate",
+                    "title": "WiredTiger Cache Eviction",
                     "tooltip": {
                         "shared": true,
                         "value_type": "individual"
@@ -976,7 +976,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Usage",
+                    "title": "WiredTiger Cache Capacity",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1043,7 +1043,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Overhead",
+                    "title": "WiredTiger Cache Overhead",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1089,13 +1089,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -1120,7 +1120,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Cache Pages",
+                    "title": "WiredTiger Cache Pages",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1189,7 +1189,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Log Operations",
+                    "title": "WiredTiger Log Operations",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1235,13 +1235,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -1266,7 +1266,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Log Bytes",
+                    "title": "WiredTiger Log Bytes",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1304,13 +1304,13 @@
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
-                        "current": true,
-                        "max": true,
+                        "current": false,
+                        "max": false,
                         "min": false,
                         "rightSide": true,
                         "show": true,
                         "total": false,
-                        "values": true
+                        "values": false
                     },
                     "lines": true,
                     "linewidth": 2,
@@ -1337,7 +1337,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Log Records",
+                    "title": "WiredTiger Log Records",
                     "tooltip": {
                         "shared": true,
                         "value_type": "individual"
@@ -1727,7 +1727,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Linux - Load Average",
+                    "title": "Load Average",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1829,7 +1829,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Linux - CPU %",
+                    "title": "CPU %",
                     "tooltip": {
                         "shared": true,
                         "value_type": "individual"
@@ -2020,7 +2020,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Linux - Disk IO Time Spent",
+                    "title": "IO Time Spent",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -2136,5 +2136,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB WiredTiger",
-    "version": 7
+    "version": 3
 }

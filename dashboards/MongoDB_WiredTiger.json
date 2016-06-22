@@ -2108,7 +2108,7 @@
             "height": "25px",
             "panels": [
                 {
-                    "content": "Built from git repo: https://github.com/timvaillancourt/grafana_mongodb_dashboards, commit hash: a92de1311da63a51c5ab2bfe0a4429a1d563fe57\n",
+                    "content": "Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
                     "editable": true,
                     "error": false,
                     "height": "",

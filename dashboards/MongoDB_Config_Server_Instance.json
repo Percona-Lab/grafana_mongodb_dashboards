@@ -417,19 +417,11 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"config\",alias=\"$mongod\",state=\"total_open\"}",
+                            "expr": "mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"config\",alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "open",
+                            "legendFormat": "{{state}}",
                             "refId": "J",
-                            "step": 11
-                        },
-                        {
-                            "expr": "mongodb_mongod_metrics_cursor_timed_out_total{cluster=\"$cluster\",nodetype=\"config\",alias=\"$mongod\"}",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "timeout",
-                            "refId": "A",
                             "step": 11
                         }
                     ],

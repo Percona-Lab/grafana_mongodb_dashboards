@@ -670,7 +670,7 @@
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
-                        "leftMin": 0,
+                        "leftMin": null,
                         "rightLogBase": 1,
                         "rightMax": null,
                         "rightMin": null,
@@ -699,23 +699,28 @@
                     "pointradius": 5,
                     "points": false,
                     "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 6,
+                    "seriesOverrides": [
+                        {
+                            "alias": "/^write_/",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "span": 12,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "Total",
+                            "legendFormat": "{{type}}_total",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"write\"}",
+                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "Active",
+                            "legendFormat": "{{type}}_active",
                             "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
                             "refId": "B",
                             "step": 2
@@ -723,83 +728,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - WiredTiger Write Transactions",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "editable": true,
-                    "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 54,
-                    "isNew": true,
-                    "leftYAxisLabel": "Transactions",
-                    "legend": {
-                        "avg": false,
-                        "current": true,
-                        "max": true,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": true
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 6,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"read\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Total",
-                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
-                            "refId": "A",
-                            "step": 2
-                        },
-                        {
-                            "expr": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"read\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "Active",
-                            "metric": "mongodb_mongod_wiredtiger_concurrent_transactions_tickets_total",
-                            "refId": "B",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Mongod - WiredTiger Read Transactions",
+                    "title": "Mongod - WiredTiger Transactions",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -2032,7 +1961,7 @@
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
-                        "leftMin": 0,
+                        "leftMin": null,
                         "rightLogBase": 1,
                         "rightMax": null,
                         "rightMin": null,
@@ -2063,7 +1992,12 @@
                     "pointradius": 5,
                     "points": false,
                     "renderer": "flot",
-                    "seriesOverrides": [],
+                    "seriesOverrides": [
+                        {
+                            "alias": "/_w$/",
+                            "transform": "negative-Y"
+                        }
+                    ],
                     "span": 12,
                     "stack": false,
                     "steppedLine": false,
@@ -2158,7 +2092,7 @@
                 "includeAll": false,
                 "label": "Mongod Instance",
                 "multi": false,
-                "multiFormat": "pipe",
+                "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
                 "query": "mongodb_mongod_wiredtiger_transactions_total{cluster=~\"$cluster\",nodetype=~\"(config|mongod)\"}",
@@ -2202,5 +2136,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB WiredTiger",
-    "version": 6
+    "version": 7
 }

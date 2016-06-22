@@ -4,35 +4,11 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": null,
+    "id": 5,
     "links": [],
     "originalTitle": "MongoDB Standalone Instance",
     "refresh": "10s",
     "rows": [
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "25px",
-            "panels": [
-                {
-                    "content": "Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
-                    "editable": true,
-                    "error": false,
-                    "height": "",
-                    "id": 45,
-                    "isNew": true,
-                    "links": [],
-                    "mode": "text",
-                    "span": 12,
-                    "style": {
-                        "font-size": "10pt"
-                    },
-                    "title": "",
-                    "type": "text"
-                }
-            ],
-            "title": "New row"
-        },
         {
             "collapse": false,
             "editable": true,
@@ -323,6 +299,7 @@
                         "current": false,
                         "max": false,
                         "min": false,
+                        "rightSide": true,
                         "show": true,
                         "total": false,
                         "values": false
@@ -412,7 +389,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -422,7 +399,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Open",
                             "refId": "J",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "mongodb_mongod_metrics_cursor_timed_out_total{alias=\"$mongod\"}",
@@ -430,7 +407,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Timeout",
                             "refId": "A",
-                            "step": 11
+                            "step": 2 
                         }
                     ],
                     "timeFrom": null,
@@ -488,7 +465,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -498,7 +475,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Current Connections",
                             "refId": "J",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -515,7 +492,15 @@
                         "none",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -556,7 +541,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -566,7 +551,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Connection Rate",
                             "refId": "J",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -583,15 +568,7 @@
                         "none",
                         "short"
                     ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
+                },
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -632,7 +609,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -642,7 +619,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -659,7 +636,15 @@
                         "none",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -700,7 +685,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -710,14 +695,14 @@
                             "legendFormat": "{{state}}",
                             "metric": "",
                             "refId": "A",
-                            "step": 21
+                            "step": 2
                         },
                         {
                             "expr": "irate(mongodb_mongod_metrics_record_moves_total{alias=\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "moved",
                             "refId": "B",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -775,7 +760,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -785,7 +770,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Lock Ratio",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -802,7 +787,15 @@
                         "none",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -843,7 +836,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -853,7 +846,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -870,15 +863,7 @@
                         "\u00b5s",
                         "short"
                     ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
+                },
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -919,7 +904,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -929,7 +914,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "faults",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -946,7 +931,15 @@
                         "none",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -987,7 +980,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -997,7 +990,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1056,7 +1049,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1067,7 +1060,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Write Wait Time",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1084,7 +1077,15 @@
                         "ms",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -1126,7 +1127,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1137,7 +1138,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "refId": "J",
-                            "step": 21
+                            "step": 2
                         },
                         {
                             "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
@@ -1146,7 +1147,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Timeouts",
                             "refId": "A",
-                            "step": 21
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1163,15 +1164,7 @@
                         "none",
                         "short"
                     ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
+                },
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -1212,7 +1205,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1222,7 +1215,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1239,7 +1232,15 @@
                         "none",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -1280,7 +1281,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1290,7 +1291,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Total Usage",
                             "refId": "A",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "irate(mongodb_mongod_metrics_repl_network_bytes_total{alias=\"$mongod\"}[45s])",
@@ -1298,7 +1299,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Replication Usage",
                             "refId": "J",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1356,7 +1357,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 4,
+                    "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1365,14 +1366,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Resident",
                             "refId": "A",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "mongodb_mongod_memory{alias=\"$mongod\",type=\"mapped\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Mapped",
                             "refId": "B",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1438,7 +1439,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1447,21 +1448,21 @@
                             "intervalFactor": 2,
                             "legendFormat": "load1",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_load5{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load5",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_load15{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load15",
                             "refId": "C",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1519,7 +1520,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": true,
                     "steppedLine": false,
                     "targets": [
@@ -1529,7 +1530,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "user",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
@@ -1537,7 +1538,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "system",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
@@ -1545,7 +1546,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "idle",
                             "refId": "D",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
@@ -1553,7 +1554,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "iowait",
                             "refId": "C",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
@@ -1561,7 +1562,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "other",
                             "refId": "E",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1621,7 +1622,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1631,7 +1632,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "available",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
@@ -1639,28 +1640,28 @@
                             "intervalFactor": 2,
                             "legendFormat": "used",
                             "refId": "E",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_memory_Buffers{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_memory_Cached{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1677,7 +1678,15 @@
                         "bytes",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -1718,7 +1727,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1727,7 +1736,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Mapped",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1785,7 +1794,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1794,14 +1803,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
                             "intervalFactor": 2,
                             "legendFormat": "Write",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1859,7 +1868,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1868,14 +1877,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "sum(irate(node_disk_bytes_written{alias=\"$mongod\"}[45s])) by (alias)",
                             "intervalFactor": 2,
                             "legendFormat": "Written",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -1892,7 +1901,15 @@
                         "Bps",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
                     "aliasColors": {},
                     "bars": false,
@@ -1933,7 +1950,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -1942,14 +1959,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Running",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "node_procs_blocked{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Blocked",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -2007,7 +2024,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -2016,7 +2033,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Forks",
                             "refId": "C",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -2076,7 +2093,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -2085,12 +2102,101 @@
                             "intervalFactor": 2,
                             "legendFormat": "Context Switches",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Linux - Context Switches",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 68,
+                    "isNew": true,
+                    "leftYAxisLabel": "Packets / Sec",
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(node_network_receive_packets{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packets Total",
+                            "refId": "C",
+                            "step": 11
+                        },
+                        {
+                            "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packets Dropped",
+                            "refId": "A",
+                            "step": 11
+                        },
+                        {
+                            "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packet Errors",
+                            "refId": "B",
+                            "step": 11
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Linux - Network Packets",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -2143,7 +2249,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -2152,7 +2258,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Established",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -2210,7 +2316,7 @@
                     "points": false,
                     "renderer": "flot",
                     "seriesOverrides": [],
-                    "span": 3,
+                    "span": 4,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
@@ -2219,14 +2325,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Received",
                             "refId": "A",
-                            "step": 21
+                            "step": 11
                         },
                         {
                             "expr": "sum(irate(node_network_transmit_bytes{alias=\"$mongod\"}[45s])) by (alias)",
                             "intervalFactor": 2,
                             "legendFormat": "Transmitted",
                             "refId": "B",
-                            "step": 21
+                            "step": 11
                         }
                     ],
                     "timeFrom": null,
@@ -2243,87 +2349,30 @@
                         "Bps",
                         "short"
                     ]
-                },
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "25px",
+            "panels": [
                 {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
+                    "content": "Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%\n",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 68,
+                    "height": "",
+                    "id": 45,
                     "isNew": true,
-                    "leftYAxisLabel": "Packets / Sec",
-                    "legend": {
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "connected",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [],
-                    "span": 3,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "sum(irate(node_network_receive_packets{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packets Total",
-                            "refId": "C",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packets Dropped",
-                            "refId": "A",
-                            "step": 21
-                        },
-                        {
-                            "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
-                            "intervalFactor": 2,
-                            "legendFormat": "Packet Errors",
-                            "refId": "B",
-                            "step": 21
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "Linux - Network Packets",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
+                    "mode": "text",
+                    "span": 12,
+                    "style": {
+                        "font-size": "10pt"
                     },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
-                    ]
+                    "title": "",
+                    "type": "text"
                 }
             ],
             "title": "New row"

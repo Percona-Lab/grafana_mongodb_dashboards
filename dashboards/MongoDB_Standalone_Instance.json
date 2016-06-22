@@ -417,7 +417,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",alias=\"$mongod\"}",
+                            "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",

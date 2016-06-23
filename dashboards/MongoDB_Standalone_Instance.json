@@ -41,7 +41,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -99,7 +99,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -157,7 +157,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -215,7 +215,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -273,7 +273,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -330,7 +330,7 @@
                     "isNew": true,
                     "links": [],
                     "maxDataPoints": 100,
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "nullText": null,
                     "postfix": "",
                     "postfixFontSize": "50%",
@@ -398,7 +398,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -482,7 +482,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -558,7 +558,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -642,7 +642,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -718,7 +718,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -803,7 +803,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -881,7 +881,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -975,7 +975,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1053,7 +1053,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1137,7 +1137,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1226,7 +1226,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1344,7 +1344,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1457,7 +1457,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1539,7 +1539,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1629,7 +1629,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1713,7 +1713,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1799,7 +1799,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1894,7 +1894,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,
@@ -1969,7 +1969,7 @@
                     "lines": true,
                     "linewidth": 2,
                     "links": [],
-                    "nullPointMode": "null"
+                    "nullPointMode": "null",
                     "percentage": false,
                     "pointradius": 5,
                     "points": false,

@@ -10,2055 +10,2055 @@
     "refresh": "10s",
     "rows": [
         {
-          "collapse": false,
-          "editable": true,
-          "height": "25px",
-          "panels": [
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "format": "none",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 50,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "25px",
+            "panels": [
                 {
-                  "expr": "node_load1{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
-                }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current Linux Load Avg",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            },
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "format": "percentunit",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 53,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "format": "none",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 50,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "node_load1{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current Linux Load Avg",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
                 {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
-                }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current User CPU %",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            },
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "format": "percentunit",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 59,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "format": "percentunit",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 53,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current User CPU %",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
                 {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
-                }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current System CPU %",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            },
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "format": "percentunit",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 60,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "format": "percentunit",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 59,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current System CPU %",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
                 {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
-                }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current IO Wait CPU %",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            },
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "format": "percentunit",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 58,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "format": "percentunit",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 60,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (instance)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (instance))",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current IO Wait CPU %",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
                 {
-                  "expr": "1-((node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))/node_memory_MemTotal{alias=\"$mongod\"})",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
-                }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current Memory Used %",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            },
-            {
-              "cacheTimeout": null,
-              "colorBackground": false,
-              "colorValue": false,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "format": "none",
-              "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-              },
-              "hideTimeOverride": true,
-              "id": 73,
-              "interval": null,
-              "isNew": true,
-              "links": [],
-              "maxDataPoints": 100,
-              "nullPointMode": "connected",
-              "nullText": null,
-              "postfix": "",
-              "postfixFontSize": "50%",
-              "prefix": "",
-              "prefixFontSize": "50%",
-              "span": 2,
-              "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
-              },
-              "targets": [
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "format": "percentunit",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 58,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "1-((node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))/node_memory_MemTotal{alias=\"$mongod\"})",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current Memory Used %",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
+                },
                 {
-                  "expr": "sum(irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s]))",
-                  "intervalFactor": 2,
-                  "legendFormat": "",
-                  "metric": "",
-                  "refId": "A",
-                  "step": 10
+                    "cacheTimeout": null,
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                        "rgba(245, 54, 54, 0.9)",
+                        "rgba(237, 129, 40, 0.89)",
+                        "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "format": "none",
+                    "gauge": {
+                        "maxValue": 100,
+                        "minValue": 0,
+                        "show": false,
+                        "thresholdLabels": false,
+                        "thresholdMarkers": true
+                    },
+                    "hideTimeOverride": true,
+                    "id": 73,
+                    "interval": null,
+                    "isNew": true,
+                    "links": [],
+                    "maxDataPoints": 100,
+                    "nullPointMode": "connected",
+                    "nullText": null,
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "span": 2,
+                    "sparkline": {
+                        "fillColor": "rgba(31, 118, 189, 0.18)",
+                        "full": false,
+                        "lineColor": "rgb(31, 120, 193)",
+                        "show": false
+                    },
+                    "targets": [
+                        {
+                            "expr": "sum(irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s]))",
+                            "intervalFactor": 2,
+                            "legendFormat": "",
+                            "metric": "",
+                            "refId": "A",
+                            "step": 10
+                        }
+                    ],
+                    "thresholds": "",
+                    "timeFrom": "1m",
+                    "title": "Current Operations",
+                    "type": "singlestat",
+                    "valueFontSize": "80%",
+                    "valueMaps": [],
+                    "valueName": "avg"
                 }
-              ],
-              "thresholds": "",
-              "timeFrom": "1m",
-              "title": "Current Operations",
-              "type": "singlestat",
-              "valueFontSize": "80%",
-              "valueMaps": [],
-              "valueName": "avg"
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 2,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 15,
-              "isNew": true,
-              "legend": {
-                "alignAsTable": true,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "null",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 12,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "{{type}}",
-                  "refId": "J",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 15,
+                    "isNew": true,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 12,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Command Operations / sec",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "short",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Command Operations / sec",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "short",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 38,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": false,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "mongodb_mongod_connections{alias=~\"$mongod\",state=\"current\"}",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "Current Connections",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Connections",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Connections",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 38,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": false,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_connections{alias=~\"$mongod\",state=\"current\"}",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "Current Connections",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Connections",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Connections",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 25,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"}",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{state}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Cursors",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "short",
+                            "label": "Cursors",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 25,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"}",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "{{state}}",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Cursors",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "short",
-                  "label": "Cursors",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 36,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "irate(mongodb_mongod_metrics_document_total{alias=\"$mongod\"}[45s])",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "{{state}}",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Document Operations",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Documents / Sec",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 36,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_metrics_document_total{alias=\"$mongod\"}[45s])",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{state}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Document Operations",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Documents / Sec",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 40,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_global_lock_current_queue{alias=\"$mongod\"}",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Queued Operations",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Operations",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 40,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "mongodb_mongod_global_lock_current_queue{alias=\"$mongod\"}",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "{{type}}",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Queued Operations",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Operations",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 41,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": false,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{alias=~\"$mongod\"}[1m])",
-                  "hide": false,
-                  "interval": "",
-                  "intervalFactor": 2,
-                  "legendFormat": "Write Wait Time",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "getLastError Write Time",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "ms",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 41,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": false,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{alias=~\"$mongod\"}[1m])",
+                            "hide": false,
+                            "interval": "",
+                            "intervalFactor": 2,
+                            "legendFormat": "Write Wait Time",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "getLastError Write Time",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "ms",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 62,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{alias=~\"$mongod\"}[1m])",
+                            "hide": false,
+                            "interval": "",
+                            "intervalFactor": 2,
+                            "legendFormat": "Total",
+                            "refId": "J",
+                            "step": 2
+                        },
+                        {
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
+                            "hide": false,
+                            "interval": "",
+                            "intervalFactor": 2,
+                            "legendFormat": "Timeouts",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "getLastError Write Operations",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Operations / Sec",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 62,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{alias=~\"$mongod\"}[1m])",
-                  "hide": false,
-                  "interval": "",
-                  "intervalFactor": 2,
-                  "legendFormat": "Total",
-                  "refId": "J",
-                  "step": 2
-                },
-                {
-                  "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
-                  "hide": false,
-                  "interval": "",
-                  "intervalFactor": 2,
-                  "legendFormat": "Timeouts",
-                  "refId": "A",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "getLastError Write Operations",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Operations / Sec",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 39,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": false,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=\"$mongod\"}[45s])",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "faults",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Memory Faults",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Page Faults",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 39,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": false,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=\"$mongod\"}[45s])",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "faults",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Memory Faults",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Page Faults",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 37,
+                    "isNew": true,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "round(increase(mongodb_mongod_asserts_total{alias=\"$mongod\"}[45s]))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "J",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Asserts",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Event",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 37,
-              "isNew": true,
-              "legend": {
-                "alignAsTable": true,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "round(increase(mongodb_mongod_asserts_total{alias=\"$mongod\"}[45s]))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "{{type}}",
-                  "refId": "J",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Asserts",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Event",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 28,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "node_load1{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "load1",
-                  "refId": "A",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 28,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "node_load1{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "load1",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_load5{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "load5",
+                            "refId": "B",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_load15{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "load15",
+                            "refId": "C",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Load Average",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Load Avg",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "expr": "node_load5{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "load5",
-                  "refId": "B",
-                  "step": 2
-                },
-                {
-                  "expr": "node_load15{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "load15",
-                  "refId": "C",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 43,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": true,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "user",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "system",
+                            "refId": "B",
+                            "step": 2
+                        },
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "idle",
+                            "refId": "D",
+                            "step": 2
+                        },
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "iowait",
+                            "refId": "C",
+                            "step": 2
+                        },
+                        {
+                            "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "other",
+                            "refId": "E",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "CPU %",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "percentunit",
+                            "label": "",
+                            "logBase": 1,
+                            "max": 1,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Load Average",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Load Avg",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 43,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": true,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "user",
-                  "refId": "A",
-                  "step": 2
-                },
-                {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "system",
-                  "refId": "B",
-                  "step": 2
-                },
-                {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "idle",
-                  "refId": "D",
-                  "step": 2
-                },
-                {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "iowait",
-                  "refId": "C",
-                  "step": 2
-                },
-                {
-                  "expr": "(sum(delta(node_cpu{alias=\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=\"$mongod\"}[45s])) by (alias))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "other",
-                  "refId": "E",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "CPU %",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "percentunit",
-                  "label": "",
-                  "logBase": 1,
-                  "max": 1,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 69,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "hideZero": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 12,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"})",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "available",
-                  "refId": "B",
-                  "step": 2
-                },
-                {
-                  "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
-                  "hide": false,
-                  "intervalFactor": 2,
-                  "legendFormat": "used",
-                  "refId": "E",
-                  "step": 2
-                },
-                {
-                  "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "total",
-                  "refId": "A",
-                  "step": 2
-                },
-                {
-                  "expr": "node_memory_Buffers{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "buffers",
-                  "refId": "C",
-                  "step": 2
-                },
-                {
-                  "expr": "node_memory_Cached{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "cached",
-                  "refId": "D",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 69,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "hideZero": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 12,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"})",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "available",
+                            "refId": "B",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "used",
+                            "refId": "E",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "total",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_memory_Buffers{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "buffers",
+                            "refId": "C",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_memory_Cached{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "cached",
+                            "refId": "D",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Linux - Memory",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "bytes",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Linux - Memory",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "bytes",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 65,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "sum(irate(node_disk_bytes_read{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Read",
-                  "refId": "A",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 65,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(node_disk_bytes_read{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Read",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(node_disk_bytes_written{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Written",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "IO Bytes",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "Bps",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "expr": "sum(irate(node_disk_bytes_written{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Written",
-                  "refId": "B",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 51,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(node_disk_read_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Read",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Write",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "IO Time Spent",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "ms",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "IO Bytes",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "Bps",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 51,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "sum(irate(node_disk_read_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Read",
-                  "refId": "A",
-                  "step": 2
-                },
-                {
-                  "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Write",
-                  "refId": "B",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "IO Time Spent",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "ms",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 70,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "node_procs_running{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "Running",
-                  "refId": "A",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 70,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "node_procs_running{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Running",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "node_procs_blocked{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Blocked",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Process Count",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Processes",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "expr": "node_procs_blocked{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "Blocked",
-                  "refId": "B",
-                  "step": 2
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 44,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "hideZero": false,
+                        "max": false,
+                        "min": false,
+                        "show": false,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(node_context_switches{alias=\"$mongod\"}[45s])",
+                            "intervalFactor": 2,
+                            "legendFormat": "Context Switches",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Context Switches",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Per Second",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Process Count",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Processes",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "decimals": 2,
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 44,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "hideZero": false,
-                "max": false,
-                "min": false,
-                "show": false,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "irate(node_context_switches{alias=\"$mongod\"}[45s])",
-                  "intervalFactor": 2,
-                  "legendFormat": "Context Switches",
-                  "refId": "B",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Context Switches",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Per Second",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {
-                "In": "#C15C17",
-                "Out": "#508642"
-              },
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 2,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 67,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "alias": "In",
-                  "transform": "negative-Y"
+                    "aliasColors": {
+                        "In": "#C15C17",
+                        "Out": "#508642"
+                    },
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 67,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "In",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "span": 12,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(node_network_receive_bytes{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "In",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(node_network_transmit_bytes{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Out",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Network In/Out Bytes",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "Bps",
+                            "label": "",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ],
-              "span": 12,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "sum(irate(node_network_receive_bytes{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "In",
-                  "refId": "A",
-                  "step": 2
-                },
-                {
-                  "expr": "sum(irate(node_network_transmit_bytes{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Out",
-                  "refId": "B",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Network In/Out Bytes",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "Bps",
-                  "label": "",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "250px",
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 1,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 72,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "connected",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
                 {
-                  "expr": "node_netstat_Tcp_CurrEstab{alias=\"$mongod\"}",
-                  "intervalFactor": 2,
-                  "legendFormat": "Established",
-                  "refId": "A",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Network Connections",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Connections",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 72,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "node_netstat_Tcp_CurrEstab{alias=\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "Established",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Network Connections",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Connections",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 },
                 {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 68,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": true,
+                    "targets": [
+                        {
+                            "expr": "sum(irate(node_network_receive_packets{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packets Total",
+                            "refId": "C",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packets Dropped",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
+                            "intervalFactor": 2,
+                            "legendFormat": "Packet Errors",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Network Packets",
+                    "tooltip": {
+                        "msResolution": false,
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "show": true
+                    },
+                    "yaxes": [
+                        {
+                            "format": "none",
+                            "label": "Packets / Sec",
+                            "logBase": 1,
+                            "max": null,
+                            "min": 0,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "datasource": "Prometheus",
-              "editable": true,
-              "error": false,
-              "fill": 2,
-              "grid": {
-                "threshold1": null,
-                "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                "threshold2": null,
-                "threshold2Color": "rgba(234, 112, 112, 0.22)"
-              },
-              "id": 68,
-              "isNew": true,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 2,
-              "links": [],
-              "nullPointMode": "null",
-              "percentage": false,
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "span": 6,
-              "stack": false,
-              "steppedLine": true,
-              "targets": [
-                {
-                  "expr": "sum(irate(node_network_receive_packets{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Packets Total",
-                  "refId": "C",
-                  "step": 2
-                },
-                {
-                  "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Packets Dropped",
-                  "refId": "A",
-                  "step": 2
-                },
-                {
-                  "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
-                  "intervalFactor": 2,
-                  "legendFormat": "Packet Errors",
-                  "refId": "B",
-                  "step": 2
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Network Packets",
-              "tooltip": {
-                "msResolution": false,
-                "shared": true,
-                "value_type": "cumulative"
-              },
-              "type": "graph",
-              "xaxis": {
-                "show": true
-              },
-              "yaxes": [
-                {
-                  "format": "none",
-                  "label": "Packets / Sec",
-                  "logBase": 1,
-                  "max": null,
-                  "min": 0,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ]
-            }
-          ],
-          "title": "New row"
+            ],
+            "title": "New row"
         },
         {
-          "collapse": false,
-          "editable": true,
-          "height": "25px",
-          "panels": [
-            {
-              "content": "Built from git repo: https://github.com/Percona-Lab/grafana_mongodb_dashboards, commit hash: a92de1311da63a51c5ab2bfe0a4429a1d563fe57\n",
-              "editable": true,
-              "error": false,
-              "height": "",
-              "id": 45,
-              "isNew": true,
-              "links": [],
-              "mode": "text",
-              "span": 12,
-              "style": {
-                "font-size": "10pt"
-              },
-              "title": "",
-              "type": "text"
-            }
-          ],
-          "title": "New row"
+            "collapse": false,
+            "editable": true,
+            "height": "25px",
+            "panels": [
+                {
+                    "content": "Built from git repo: https://github.com/Percona-Lab/grafana_mongodb_dashboards, commit hash: a92de1311da63a51c5ab2bfe0a4429a1d563fe57\n",
+                    "editable": true,
+                    "error": false,
+                    "height": "",
+                    "id": 45,
+                    "isNew": true,
+                    "links": [],
+                    "mode": "text",
+                    "span": 12,
+                    "style": {
+                        "font-size": "10pt"
+                    },
+                    "title": "",
+                    "type": "text"
+                }
+            ],
+            "title": "New row"
         }
-      ],
+    ],
     "schemaVersion": 8,
     "sharedCrosshair": true,
     "style": "dark",
@@ -2073,10 +2073,7 @@
                 "auto": true,
                 "auto_count": 200,
                 "auto_min": "1s",
-                "current": {
-                  "text": "auto",
-                  "value": "$__auto_interval"
-                },
+                "current": {},
                 "datasource": "Prometheus",
                 "hide": 0,
                 "includeAll": false,
@@ -2084,50 +2081,9 @@
                 "multi": false,
                 "multiFormat": "glob",
                 "name": "interval",
-                "options": [
-                  {
-                    "selected": true,
-                    "text": "auto",
-                    "value": "$__auto_interval"
-                  },
-                  {
-                    "selected": false,
-                    "text": "1s",
-                    "value": "1s"
-                  },
-                  {
-                    "selected": false,
-                    "text": "5s",
-                    "value": "5s"
-                  },
-                  {
-                    "selected": false,
-                    "text": "1m",
-                    "value": "1m"
-                  },
-                  {
-                    "selected": false,
-                    "text": "5m",
-                    "value": "5m"
-                  },
-                  {
-                    "selected": false,
-                    "text": "1h",
-                    "value": "1h"
-                  },
-                  {
-                    "selected": false,
-                    "text": "6h",
-                    "value": "6h"
-                  },
-                  {
-                    "selected": false,
-                    "text": "1d",
-                    "value": "1d"
-                  }
-                ],
+                "options": [],
                 "query": "1s,5s,1m,5m,1h,6h,1d",
-                "refresh": 0,
+                "refresh": true,
                 "type": "interval"
             },
             {

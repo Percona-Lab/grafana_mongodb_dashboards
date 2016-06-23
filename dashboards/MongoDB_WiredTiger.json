@@ -837,7 +837,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 2,
+                    "fill": 6,
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
@@ -1285,7 +1285,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 2,
+                    "fill": 6,
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": null,
@@ -1746,7 +1746,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 2,
+                    "fill": 6,
                     "grid": {
                         "leftLogBase": 1,
                         "leftMax": 1,

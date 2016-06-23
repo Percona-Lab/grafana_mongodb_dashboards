@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": null,
+    "id": 11,
     "links": [],
     "originalTitle": "MongoDB Replica Set",
     "refresh": "10s",
@@ -24,6 +24,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
                     "format": "none",
@@ -132,6 +133,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 0,
                     "editable": true,
                     "error": false,
                     "format": "none",
@@ -189,6 +191,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "format": "s",
@@ -246,6 +249,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "format": "none",
@@ -303,6 +307,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "format": "percentunit",
@@ -360,6 +365,7 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "format": "percentunit",
@@ -419,10 +425,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -460,7 +473,7 @@
                             "intervalFactor": 10,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 20
+                            "step": 10
                         },
                         {
                             "expr": "irate(mongodb_mongod_op_counters_repl_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",type!=\"command\",type!=\"query\",type!=\"getmore\"}[45s])",
@@ -468,7 +481,7 @@
                             "intervalFactor": 10,
                             "legendFormat": "repl_{{type}}",
                             "refId": "A",
-                            "step": 20
+                            "step": 10
                         }
                     ],
                     "timeFrom": null,
@@ -480,9 +493,15 @@
                         "value_type": "individual"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "short",
@@ -513,10 +532,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -552,7 +578,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Current Connections",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -564,9 +590,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -589,10 +621,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -630,7 +669,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -642,9 +681,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "short",
@@ -675,10 +720,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -714,7 +766,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -726,9 +778,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -751,10 +809,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -790,7 +855,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -802,9 +867,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -835,11 +906,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
-                    "decimals": 2,
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -876,7 +953,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Write Wait Time",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -888,9 +965,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "ms",
@@ -913,11 +996,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
-                    "decimals": 2,
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -954,7 +1043,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Total",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",replset=\"$replset\",alias=~\"$mongod\"}[1m])",
@@ -963,7 +1052,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Timeouts",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -975,9 +1064,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -1008,10 +1103,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1046,7 +1148,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Oplog Insert Time",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1058,9 +1160,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "ms",
@@ -1083,10 +1191,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1122,7 +1237,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "faults",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1134,9 +1249,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -1167,10 +1288,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1208,7 +1336,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "J",
-                            "step": 4
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1220,9 +1348,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -1253,10 +1387,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1293,7 +1434,7 @@
                             "legendFormat": "Now to End",
                             "metric": "",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "mongodb_mongod_replset_oplog_head_timestamp{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}-mongodb_mongod_replset_oplog_tail_timestamp{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
@@ -1302,7 +1443,7 @@
                             "legendFormat": "Oplog Range",
                             "metric": "",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1314,9 +1455,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "s",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "s",
@@ -1339,10 +1486,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1377,7 +1531,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Replication Lag",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1389,9 +1543,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "s",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "s",
@@ -1422,10 +1582,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1465,7 +1632,7 @@
                             "legendFormat": "{{state}}",
                             "metric": "",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1477,9 +1644,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "s",
@@ -1502,10 +1675,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1540,7 +1720,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Elections",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1552,9 +1732,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -1585,10 +1771,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1625,7 +1818,7 @@
                             "legendFormat": "{{name}}",
                             "metric": "",
                             "refId": "J",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1637,9 +1830,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "s",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "s",
@@ -1662,10 +1861,17 @@
                     "aliasColors": {},
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1700,7 +1906,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "{{name}}",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1712,9 +1918,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "ms",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "ms",
@@ -1747,10 +1959,17 @@
                     },
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1785,21 +2004,21 @@
                             "intervalFactor": 2,
                             "legendFormat": "load1",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "node_load5{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load5",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "node_load15{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load15",
                             "refId": "C",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1811,9 +2030,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -1839,10 +2064,17 @@
                     },
                     "bars": false,
                     "datasource": "Prometheus",
+                    "decimals": 2,
                     "editable": true,
                     "error": false,
                     "fill": 6,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -1880,7 +2112,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "user",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}[45s])) by (alias))",
@@ -1888,7 +2120,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "system",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}[45s])) by (alias))",
@@ -1896,7 +2128,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "idle",
                             "refId": "D",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}[45s])) by (alias))",
@@ -1904,7 +2136,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "iowait",
                             "refId": "C",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}[45s])) by (alias))",
@@ -1912,7 +2144,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "other",
                             "refId": "E",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1924,9 +2156,15 @@
                         "value_type": "individual"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "percentunit",
@@ -1967,6 +2205,12 @@
                     "error": false,
                     "fill": 6,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2009,7 +2253,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "used",
                             "refId": "E",
-                            "step": 4
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_MemTotal{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
@@ -2024,14 +2268,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
-                            "step": 4
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_Cached{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
-                            "step": 4
+                            "step": 2
                         },
                         {
                             "expr": "(node_memory_MemAvailable{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"} or (node_memory_Buffers{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"} + node_memory_Cached{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}))",
@@ -2039,7 +2283,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "available",
                             "refId": "B",
-                            "step": 4
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2051,9 +2295,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "bytes",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "bytes",
@@ -2088,6 +2338,12 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2122,14 +2378,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "sum(irate(node_disk_bytes_written{alias=\"$mongod\"}[45s])) by (alias)",
                             "intervalFactor": 2,
                             "legendFormat": "Written",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2141,9 +2397,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "Bps",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "Bps",
@@ -2170,6 +2432,12 @@
                     "error": false,
                     "fill": 6,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2205,7 +2473,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Read",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "sum(irate(node_disk_write_time_ms{alias=\"$mongod\"}[45s])) by (instance)",
@@ -2213,7 +2481,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Write",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2225,9 +2493,15 @@
                         "value_type": "individual"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "ms",
@@ -2262,6 +2536,12 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2296,14 +2576,14 @@
                             "intervalFactor": 2,
                             "legendFormat": "Running",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "node_procs_blocked{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Blocked",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2315,9 +2595,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -2345,6 +2631,12 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2380,7 +2672,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Context Switches",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2392,9 +2684,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -2433,6 +2731,12 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2477,7 +2781,7 @@
                             "legendFormat": "In",
                             "metric": "",
                             "refId": "A",
-                            "step": 4
+                            "step": 2
                         },
                         {
                             "expr": "sum(irate(node_network_transmit_bytes{alias=\"$mongod\"}[45s])) by (alias)",
@@ -2485,7 +2789,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Out",
                             "refId": "B",
-                            "step": 4
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2497,9 +2801,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "Bps",
@@ -2534,6 +2844,12 @@
                     "error": false,
                     "fill": 4,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2568,7 +2884,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "Established",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2580,9 +2896,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -2609,6 +2931,12 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
@@ -2643,21 +2971,21 @@
                             "intervalFactor": 2,
                             "legendFormat": "Packets Total",
                             "refId": "C",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "sum(irate(node_network_receive_drop{alias=\"$mongod\"}[45s])) by (alias)",
                             "intervalFactor": 2,
                             "legendFormat": "Packets Dropped",
                             "refId": "A",
-                            "step": 10
+                            "step": 2
                         },
                         {
                             "expr": "sum(irate(node_network_receive_errs{alias=\"$mongod\"}[45s])) by (alias)",
                             "intervalFactor": 2,
                             "legendFormat": "Packet Errors",
                             "refId": "B",
-                            "step": 10
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -2669,9 +2997,15 @@
                         "value_type": "cumulative"
                     },
                     "type": "graph",
+                    "x-axis": true,
                     "xaxis": {
                         "show": true
                     },
+                    "y-axis": true,
+                    "y_formats": [
+                        "short",
+                        "short"
+                    ],
                     "yaxes": [
                         {
                             "format": "none",
@@ -2826,5 +3160,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB Replica Set",
-    "version": 1
+    "version": 15
 }

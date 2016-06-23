@@ -536,7 +536,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": 1,
                         "threshold1Color": "rgba(0, 0, 0, 0.27)",
@@ -635,7 +635,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -711,7 +711,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -883,7 +883,7 @@
                     "datasource": null,
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -978,7 +978,7 @@
                     "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1055,7 +1055,7 @@
                     "decimals": 0,
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1224,7 +1224,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1301,7 +1301,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1395,7 +1395,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1472,7 +1472,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1558,7 +1558,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1652,7 +1652,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
@@ -1744,7 +1744,7 @@
                     "datasource": "Prometheus",
                     "editable": true,
                     "error": false,
-                    "fill": 1,
+                    "fill": 2,
                     "grid": {
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",

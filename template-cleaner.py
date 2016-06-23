@@ -52,6 +52,11 @@ if os.path.isfile(fileName):
 		print "ERROR: problem finding 'refresh' section in file!"
 		sys.exit(1)
 
+        if 'rows' in data:
+            for row in data['rows']:
+                if row['title'] == 'Git Info':
+                    row['content'] = 'Built from git repo: %{GIT_REPO}%, commit hash: %{GIT_COMMIT}%'
+
 	tmpFileName = fileName + ".tmp"
 	tmpFh = open(tmpFileName, "w")
 	jsonOut = json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))

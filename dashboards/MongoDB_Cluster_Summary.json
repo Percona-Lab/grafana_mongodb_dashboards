@@ -1838,7 +1838,7 @@
             "height": "25px",
             "panels": [
                 {
-                    "content": "Built from git repo: https://github.com/Percona-Lab/grafana_mongodb_dashboards, commit hash: 2e961ca5ef2c6c4e4f682892834cfae412d63659\n",
+                    "content": "",
                     "editable": true,
                     "error": false,
                     "height": "",
@@ -1854,7 +1854,7 @@
                     "type": "text"
                 }
             ],
-            "title": "New row"
+            "title": "Git Info"
         }
     ],
     "schemaVersion": 8,

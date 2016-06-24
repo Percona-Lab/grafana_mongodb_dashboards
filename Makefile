@@ -8,8 +8,8 @@ build: dashboards/*.json
 	echo "== Building dashboards with git repo/hash: $(GIT_REPO) / $(GIT_COMMIT) =="
 	rm -rf build
 	cp -dpR dashboards build
-	find build/* -type f -exec sed -i -e s@"%{GIT_REPO}%"@"$(GIT_REPO)"@g -e s@"%{GIT_COMMIT}%"@"$(GIT_COMMIT)"@g {} \;
 	find build/* -type f -exec ./template-cleaner.py {} \;
+	find build/* -type f -exec sed -i -e s@"%{GIT_REPO}%"@"$(GIT_REPO)"@g -e s@"%{GIT_COMMIT}%"@"$(GIT_COMMIT)"@g {} \;
 
 install: build
 	mkdir -p $(PREFIX)

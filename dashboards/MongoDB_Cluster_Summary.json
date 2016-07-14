@@ -743,7 +743,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongos_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total\"}) by (state)",
+                            "expr": "sum(mongodb_mongos_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total\"} or mongodb_mongos_cursors{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total_open\"}) by (state)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -917,7 +917,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total\"}) by (replset)",
+                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total_open\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
@@ -925,7 +925,7 @@
                             "step": 10
                         },
                         {
-                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"config\",state=\"total\"}) by (replset)",
+                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"config\",state=\"total\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"config\",state=\"total_open\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "config",

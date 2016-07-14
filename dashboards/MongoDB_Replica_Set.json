@@ -664,7 +664,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
+                            "expr": "mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",

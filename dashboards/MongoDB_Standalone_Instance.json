@@ -569,7 +569,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"}",
+                            "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"} or mongodb_mongod_cursors{alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",

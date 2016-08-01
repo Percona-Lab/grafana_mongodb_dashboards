@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 1,
+    "id": 2,
     "links": [],
     "originalTitle": "MongoDB RocksDB",
     "refresh": "10s",
@@ -52,7 +52,7 @@
                             "expr": "mongodb_rocksdb_memtable_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"total\"}",
                             "intervalFactor": 2,
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -107,7 +107,7 @@
                             "expr": "mongodb_rocksdb_cache_max_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -163,7 +163,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -219,7 +219,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -275,7 +275,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -331,7 +331,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
-                            "step": 2
+                            "step": 11
                         }
                     ],
                     "thresholds": "",
@@ -412,14 +412,14 @@
                         {
                             "expr": "irate(mongodb_rocksdb_writes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "Total",
+                            "legendFormat": "total",
                             "refId": "A",
                             "step": 2
                         },
                         {
                             "expr": "irate(mongodb_rocksdb_write_batches_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "Batched",
+                            "legendFormat": "batched",
                             "refId": "C",
                             "step": 2
                         },
@@ -476,7 +476,7 @@
                         "max": false,
                         "min": false,
                         "rightSide": true,
-                        "show": true,
+                        "show": false,
                         "total": false,
                         "values": false
                     },
@@ -504,7 +504,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Write-Ahead-Log Rate",
+                    "title": "RocksDB Write Ahead Log Rate",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -570,6 +570,8 @@
                     "seriesOverrides": [
                         {
                             "alias": "seconds",
+                            "fill": 1,
+                            "linewidth": 1,
                             "points": true,
                             "yaxis": 2
                         }
@@ -619,7 +621,7 @@
                     "error": false,
                     "fill": 2,
                     "grid": {
-                        "leftLogBase": 1,
+                        "leftLogBase": 10,
                         "leftMax": null,
                         "leftMin": 0,
                         "rightLogBase": 1,
@@ -680,7 +682,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Write-Ahead-Log Syncs",
+                    "title": "RocksDB Write Ahead Log Syncs",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -893,7 +895,7 @@
                         "max": false,
                         "min": false,
                         "rightSide": true,
-                        "show": true,
+                        "show": false,
                         "total": false,
                         "values": false
                     },
@@ -1057,7 +1059,7 @@
                         "current": true,
                         "max": false,
                         "min": false,
-                        "show": true,
+                        "show": false,
                         "total": false,
                         "values": true
                     },
@@ -1366,7 +1368,7 @@
                         "current": false,
                         "max": false,
                         "min": false,
-                        "show": true,
+                        "show": false,
                         "total": false,
                         "values": false
                     },
@@ -1536,21 +1538,21 @@
                             "intervalFactor": 2,
                             "legendFormat": "load1",
                             "refId": "A",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_load5{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load5",
                             "refId": "B",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_load15{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "load15",
                             "refId": "C",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1621,7 +1623,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "user",
                             "refId": "A",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"system\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1629,7 +1631,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "system",
                             "refId": "B",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"idle\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1637,7 +1639,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "idle",
                             "refId": "D",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode=\"iowait\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1645,7 +1647,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "iowait",
                             "refId": "C",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "(sum(delta(node_cpu{alias=~\"$mongod\",mode!=\"iowait\",mode!=\"idle\",mode!=\"system\",mode!=\"user\"}[45s])) by (alias)/sum(delta(node_cpu{alias=~\"$mongod\"}[45s])) by (alias))",
@@ -1653,7 +1655,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "other",
                             "refId": "E",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1725,7 +1727,7 @@
                             "intervalFactor": 2,
                             "legendFormat": "available",
                             "refId": "B",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_MemTotal{alias=\"$mongod\"}-(node_memory_MemAvailable{alias=\"$mongod\"} or (node_memory_Buffers{alias=\"$mongod\"} + node_memory_Cached{alias=\"$mongod\"}))",
@@ -1733,28 +1735,28 @@
                             "intervalFactor": 2,
                             "legendFormat": "used",
                             "refId": "E",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_MemTotal{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_Buffers{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "buffers",
                             "refId": "C",
-                            "step": 11
+                            "step": 2
                         },
                         {
                             "expr": "node_memory_Cached{alias=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "cached",
                             "refId": "D",
-                            "step": 11
+                            "step": 2
                         }
                     ],
                     "timeFrom": null,
@@ -1985,5 +1987,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB RocksDB",
-    "version": 31
+    "version": 8
 }

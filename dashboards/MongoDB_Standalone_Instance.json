@@ -345,7 +345,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "sum(irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s]))",
+                            "expr": "sum(irate(mongodb_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s]))",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "metric": "",
@@ -409,7 +409,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
+                            "expr": "irate(mongodb_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -493,7 +493,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_connections{alias=~\"$mongod\",state=\"current\"}",
+                            "expr": "mongodb_connections{alias=~\"$mongod\",state=\"current\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Current Connections",
@@ -569,7 +569,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_metrics_cursor_open{alias=\"$mongod\"} or mongodb_mongod_cursors{alias=\"$mongod\"}",
+                            "expr": "mongodb_metrics_cursor_open{alias=\"$mongod\"} or mongodb_cursors{alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -653,7 +653,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{alias=\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_metrics_document_total{alias=\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -729,7 +729,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_current_queue{alias=\"$mongod\"}",
+                            "expr": "mongodb_global_lock_current_queue{alias=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -814,7 +814,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_metrics_get_last_error_wtime_total_milliseconds{alias=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -892,7 +892,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_metrics_get_last_error_wtime_num_total{alias=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -901,7 +901,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_metrics_get_last_error_wtimeouts_total{alias=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -986,7 +986,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=\"$mongod\"}[45s])",
+                            "expr": "delta(mongodb_extra_info_page_faults_total{alias=\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "faults",
@@ -1064,7 +1064,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "round(increase(mongodb_mongod_asserts_total{alias=\"$mongod\"}[45s]))",
+                            "expr": "round(increase(mongodb_asserts_total{alias=\"$mongod\"}[45s]))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -2096,7 +2096,7 @@
                 "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
-                "query": "mongodb_mongod_connections{}",
+                "query": "mongodb_connections{}",
                 "refresh": true,
                 "regex": "/alias=\"(.+?)\"/",
                 "tagsQuery": "",

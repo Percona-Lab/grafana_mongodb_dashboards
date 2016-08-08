@@ -56,7 +56,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"unpartitioned\"}) by (cluster)",
+                            "expr": "max(mongodb_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"unpartitioned\"}) by (cluster)",
                             "intervalFactor": 2,
                             "legendFormat": "Shards",
                             "refId": "A",
@@ -113,7 +113,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"partitioned\"}) by (cluster)",
+                            "expr": "max(mongodb_sharding_databases_total{cluster=\"$cluster\",nodetype=\"mongos\",type=\"partitioned\"}) by (cluster)",
                             "intervalFactor": 2,
                             "legendFormat": "Shards",
                             "refId": "A",
@@ -170,7 +170,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_collections_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "expr": "max(mongodb_sharding_collections_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
                             "intervalFactor": 2,
                             "legendFormat": "Shards",
                             "refId": "A",
@@ -227,7 +227,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_shards_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "expr": "max(mongodb_sharding_shards_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
                             "intervalFactor": 2,
                             "legendFormat": "Shards",
                             "refId": "A",
@@ -284,7 +284,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongos_sharding_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
+                            "expr": "max(mongodb_sharding_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster)",
                             "interval": "",
                             "intervalFactor": 2,
                             "legendFormat": "Chunks",
@@ -342,7 +342,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "round(max(mongodb_mongos_sharding_balancer_enabled{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
+                            "expr": "round(max(mongodb_sharding_balancer_enabled{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
                             "intervalFactor": 2,
                             "legendFormat": "Cluster Balanced",
                             "refId": "A",
@@ -410,7 +410,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "round(min(mongodb_mongos_sharding_chunks_is_balanced{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
+                            "expr": "round(min(mongodb_sharding_chunks_is_balanced{cluster=\"$cluster\",nodetype=\"mongos\"}) by (cluster))",
                             "intervalFactor": 2,
                             "legendFormat": "Cluster Balanced",
                             "refId": "A",
@@ -484,7 +484,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(mongodb_mongos_op_counters_total{cluster=\"$cluster\",nodetype=\"mongos\",type!=\"command\"}[1m])) by (type)",
+                            "expr": "sum(irate(mongodb_op_counters_total{cluster=\"$cluster\",nodetype=\"mongos\",type!=\"command\"}[1m])) by (type)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -575,7 +575,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=\"mongod\",type!=\"command\"}[1m])) by (replset)",
+                            "expr": "sum(irate(mongodb_op_counters_total{cluster=\"$cluster\",nodetype=\"mongod\",type!=\"command\"}[1m])) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
@@ -583,7 +583,7 @@
                             "step": 4
                         },
                         {
-                            "expr": "sum(irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=\"config\",type!=\"command\"}[1m])) by (replset)",
+                            "expr": "sum(irate(mongodb_op_counters_total{cluster=\"$cluster\",nodetype=\"config\",type!=\"command\"}[1m])) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "config",
@@ -667,7 +667,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongos_connections{cluster=\"$cluster\",nodetype=\"mongos\",state=\"current\"}) by (state)",
+                            "expr": "sum(mongodb_connections{cluster=\"$cluster\",nodetype=\"mongos\",state=\"current\"}) by (state)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Current",
@@ -743,7 +743,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongos_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total\"} or mongodb_mongos_cursors{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total_open\"}) by (state)",
+                            "expr": "sum(mongodb_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total\"} or mongodb_cursors{cluster=\"$cluster\",nodetype=\"mongos\",state=\"total_open\"}) by (state)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -831,7 +831,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongod_connections{cluster=\"$cluster\",nodetype=\"mongod\",state=\"current\"}) by (replset)",
+                            "expr": "sum(mongodb_connections{cluster=\"$cluster\",nodetype=\"mongod\",state=\"current\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
@@ -839,7 +839,7 @@
                             "step": 10
                         },
                         {
-                            "expr": "sum(mongodb_mongod_connections{cluster=\"$cluster\",nodetype=\"config\",state=\"current\"}) by (replset)",
+                            "expr": "sum(mongodb_connections{cluster=\"$cluster\",nodetype=\"config\",state=\"current\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "config",
@@ -917,7 +917,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total_open\"}) by (replset)",
+                            "expr": "sum(mongodb_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total\"} or mongodb_cursors{cluster=\"$cluster\",nodetype=\"mongod\",state=\"total_open\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
@@ -925,7 +925,7 @@
                             "step": 10
                         },
                         {
-                            "expr": "sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"config\",state=\"total\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=\"config\",state=\"total_open\"}) by (replset)",
+                            "expr": "sum(mongodb_metrics_cursor_open{cluster=\"$cluster\",nodetype=\"config\",state=\"total\"} or mongodb_cursors{cluster=\"$cluster\",nodetype=\"config\",state=\"total_open\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "config",
@@ -1010,7 +1010,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "round(max(increase(mongodb_mongos_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"split\"}[1m])) by (event))",
+                            "expr": "round(max(increase(mongodb_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"split\"}[1m])) by (event))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{event}}",
@@ -1087,7 +1087,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "round(max(increase(mongodb_mongos_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"(shard|Shard)\"}[1m])) by (event))",
+                            "expr": "round(max(increase(mongodb_sharding_changelog_10min_total{cluster=\"$cluster\",nodetype=\"mongos\",event=~\"(shard|Shard)\"}[1m])) by (event))",
                             "intervalFactor": 2,
                             "legendFormat": "{{event}}",
                             "refId": "A",
@@ -1173,7 +1173,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongos_sharding_shard_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}",
+                            "expr": "mongodb_sharding_shard_chunks_total{cluster=\"$cluster\",nodetype=\"mongos\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{shard}}",
                             "refId": "A",
@@ -1258,7 +1258,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(changes(mongodb_mongod_replset_member_election_date{cluster=\"$cluster\",nodetype=\"mongod\"}[1m])) by (replset)",
+                            "expr": "max(changes(mongodb_replset_member_election_date{cluster=\"$cluster\",nodetype=\"mongod\"}[1m])) by (replset)",
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
                             "refId": "A",
@@ -1335,7 +1335,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",database=\"Collection\"}) by (replset)",
+                            "expr": "max(mongodb_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"mongod\",database=\"Collection\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
@@ -1343,7 +1343,7 @@
                             "step": 10
                         },
                         {
-                            "expr": "max(mongodb_mongod_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"config\",database=\"Collection\"}) by (replset)",
+                            "expr": "max(mongodb_locks_time_locked_global_microseconds_total{cluster=\"$cluster\",nodetype=\"config\",database=\"Collection\"}) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "config",
@@ -1429,7 +1429,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"PRIMARY\"}) by (replset)-min(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",state=\"SECONDARY\"}) by (replset)",
+                            "expr": "max(mongodb_replset_member_optime_date{cluster=\"$cluster\",state=\"PRIMARY\"}) by (replset)-min(mongodb_replset_member_optime_date{cluster=\"$cluster\",state=\"SECONDARY\"}) by (replset)",
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",
                             "refId": "A",
@@ -1506,7 +1506,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_replset_oplog_head_timestamp-mongodb_mongod_replset_oplog_tail_timestamp) by (replset)",
+                            "expr": "max(mongodb_replset_oplog_head_timestamp-mongodb_replset_oplog_tail_timestamp) by (replset)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "rs-{{replset}}",

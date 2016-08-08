@@ -57,7 +57,7 @@
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "RocksDB Cache Used",
                     "type": "singlestat",
                     "valueFontSize": "80%",
@@ -112,7 +112,7 @@
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "RocksDB Block Cache Used",
                     "type": "singlestat",
                     "valueFontSize": "80%",
@@ -168,7 +168,7 @@
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "Filesystem Cache Used",
                     "type": "singlestat",
                     "valueFontSize": "80%",
@@ -336,7 +336,7 @@
                         }
                     ],
                     "thresholds": "",
-                    "timeFrom": "1m",
+                    "timeFrom": "5m",
                     "title": "CPU Used %",
                     "type": "singlestat",
                     "valueFontSize": "80%",

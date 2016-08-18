@@ -1592,7 +1592,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",mode=\"idle\"}[1m])) by (alias)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\"}[1m])) by (alias))",
+                            "expr": "1-(sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\",mode=\"idle\"}[1m])) by (instance)/sum(delta(node_cpu{cluster=\"$cluster\",nodetype=\"mongos\"}[1m])) by (instance))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "mongos",

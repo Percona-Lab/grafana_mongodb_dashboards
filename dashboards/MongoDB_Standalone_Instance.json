@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 5,
+    "id": null,
     "links": [],
     "originalTitle": "MongoDB Standalone Instance",
     "refresh": "10s",
@@ -2137,5 +2137,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB Standalone Instance",
-    "version": 1
+    "version": 0
 }

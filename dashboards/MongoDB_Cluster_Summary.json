@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 2,
+    "id": null,
     "links": [],
     "originalTitle": "MongoDB Cluster Summary",
     "refresh": "10s",
@@ -1933,5 +1933,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB Cluster Summary",
-    "version": 1
+    "version": 0
 }

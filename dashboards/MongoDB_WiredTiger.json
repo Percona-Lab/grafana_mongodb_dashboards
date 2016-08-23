@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 10,
+    "id": null,
     "links": [],
     "originalTitle": "MongoDB WiredTiger",
     "refresh": "10s",
@@ -2180,5 +2180,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB WiredTiger",
-    "version": 9
+    "version": 0
 }

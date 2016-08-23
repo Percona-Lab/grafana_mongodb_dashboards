@@ -4,7 +4,7 @@
     },
     "editable": true,
     "hideControls": false,
-    "id": 11,
+    "id": null,
     "links": [],
     "originalTitle": "MongoDB Replica Set",
     "refresh": "10s",
@@ -3160,5 +3160,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB Replica Set",
-    "version": 15
+    "version": 0
 }

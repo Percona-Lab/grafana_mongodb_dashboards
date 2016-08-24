@@ -49,7 +49,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",type=\"total\"}",
+                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{instance=~\"$mongod\",type=\"total\"}",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -105,7 +105,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "refId": "A",
                             "step": 11
@@ -405,7 +405,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_metrics_document_total{instance=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -482,21 +482,21 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_writes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_writes_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "total",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_batches_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_write_batches_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "batched",
                             "refId": "C",
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_operations_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_operations_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "WAL-{{type}}",
                             "refId": "B",
@@ -574,14 +574,14 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "memtable_{{type}}",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "block_cache_total",
                             "refId": "B",
@@ -651,14 +651,14 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_active_entries{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_memtable_active_entries{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "active",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_rocksdb_immutable_memtable_entries{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_immutable_memtable_entries{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "immutable",
                             "refId": "B",
@@ -742,7 +742,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_compaction_seconds_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_compaction_seconds_total{instance=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "B",
@@ -818,7 +818,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_compaction_write_amplification{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_compaction_write_amplification{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "A",
@@ -902,7 +902,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_size_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level!=\"Sum\"}",
+                            "expr": "mongodb_mongod_rocksdb_size_bytes{instance=~\"$mongod\",level!=\"Sum\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "A",
@@ -978,7 +978,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_keys_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_compaction_keys_total{instance=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}_{{type}}",
                             "refId": "A",
@@ -1061,7 +1061,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level!=\"Sum\",type=~\"read.*\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{instance=~\"$mongod\",level!=\"Sum\",type=~\"read.*\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}-{{type}}",
@@ -1140,7 +1140,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level!=\"Sum\",type=~\"write.*\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{instance=~\"$mongod\",level!=\"Sum\",type=~\"write.*\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}-{{type}}",
@@ -1220,7 +1220,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_compaction_file_threads{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level!=\"Sum\"}",
+                            "expr": "mongodb_mongod_rocksdb_compaction_file_threads{instance=~\"$mongod\",level!=\"Sum\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
@@ -1292,7 +1292,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_num_files{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\",level!=\"Sum\"}",
+                            "expr": "mongodb_mongod_rocksdb_num_files{instance=~\"$mongod\",level!=\"Sum\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
@@ -1377,7 +1377,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_bytes_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "Write Rate",
                             "refId": "A",
@@ -1453,7 +1453,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_write_ahead_log_writes_per_sync{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_write_ahead_log_writes_per_sync{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Writes per Sync",
                             "refId": "A",
@@ -1535,7 +1535,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_flushed_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_rocksdb_flushed_bytes_total{instance=~\"$mongod\"}[1m])",
                             "intervalFactor": 2,
                             "legendFormat": "Flush Rate",
                             "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
@@ -1610,7 +1610,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_pending_compactions{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_pending_compactions{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "compactions",
                             "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
@@ -1618,7 +1618,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_rocksdb_pending_memtable_flushes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_pending_memtable_flushes{instance=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "memtable_flushes",
                             "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
@@ -1700,7 +1700,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_stalled_seconds_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_stalled_seconds_total{instance=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Time Stalled",
@@ -1771,7 +1771,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_stalls_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_stalls_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1849,7 +1849,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\",type!=\"command\"}[45s])",
+                            "expr": "irate(mongodb_mongod_op_counters_total{instance=\"$mongod\",type!=\"command\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
@@ -1857,7 +1857,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_op_counters_repl_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\",type!=\"command\",type!=\"query\",type!=\"getmore\"}[45s])",
+                            "expr": "irate(mongodb_mongod_op_counters_repl_total{instance=\"$mongod\",type!=\"command\",type!=\"query\",type!=\"getmore\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "repl_{{type}}",
                             "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
@@ -1928,7 +1928,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "metric": "",
@@ -1936,7 +1936,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{instance=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "moved",
                             "refId": "B",
@@ -2012,7 +2012,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}[45s])",
+                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{instance=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "faults",
@@ -2081,7 +2081,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_current_queue{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_global_lock_current_queue{instance=~\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",

@@ -56,7 +56,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_replset_my_state{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"})",
+                            "expr": "max(mongodb_mongod_replset_my_state{instance=\"$mongod\"})",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "metric": "",
@@ -165,7 +165,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_replset_number_of_members{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_replset_number_of_members{instance=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "metric": "",
@@ -223,7 +223,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "time() - mongodb_mongod_replset_member_election_date{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "time() - mongodb_mongod_replset_member_election_date{instance=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "metric": "",
@@ -573,7 +573,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_connections{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",replset=\"$replset\",instance=~\"$mongod\",state=\"current\"}",
+                            "expr": "mongodb_mongod_connections{instance=~\"$mongod\",state=\"current\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Current Connections",
@@ -664,7 +664,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"} or mongodb_mongod_cursors{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_metrics_cursor_open{instance=\"$mongod\"} or mongodb_mongod_cursors{instance=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -761,7 +761,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_metrics_document_total{instance=\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
@@ -850,7 +850,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_current_queue{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_global_lock_current_queue{instance=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -947,7 +947,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",replset=\"$replset\",instance=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_total_milliseconds{instance=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -1037,7 +1037,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",replset=\"$replset\",instance=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtime_num_total{instance=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -1046,7 +1046,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",replset=\"$replset\",instance=~\"$mongod\"}[1m])",
+                            "expr": "irate(mongodb_mongod_metrics_get_last_error_wtimeouts_total{instance=~\"$mongod\"}[1m])",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -1144,7 +1144,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_repl_oplog_insert_total_milliseconds{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_metrics_repl_oplog_insert_total_milliseconds{instance=\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "Oplog Insert Time",
                             "refId": "A",
@@ -1232,7 +1232,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}[45s])",
+                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{instance=\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "faults",
@@ -1331,7 +1331,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "round(increase(mongodb_mongod_asserts_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}[45s]))",
+                            "expr": "round(increase(mongodb_mongod_asserts_total{instance=\"$mongod\"}[45s]))",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -1428,7 +1428,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "time()-mongodb_mongod_replset_oplog_tail_timestamp{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "time()-mongodb_mongod_replset_oplog_tail_timestamp{instance=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Now to End",
@@ -1437,7 +1437,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_replset_oplog_head_timestamp{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}-mongodb_mongod_replset_oplog_tail_timestamp{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_replset_oplog_head_timestamp{instance=\"$mongod\"}-mongodb_mongod_replset_oplog_tail_timestamp{instance=\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Oplog Range",
@@ -1527,7 +1527,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",set=\"$replset\",state=\"PRIMARY\"})-min(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\",set=\"$replset\",state=\"SECONDARY\"})",
+                            "expr": "max(mongodb_mongod_replset_member_optime_date{set=\"$replset\",state=\"PRIMARY\"})-min(mongodb_mongod_replset_member_optime_date{instance=\"$mongod\",set=\"$replset\",state=\"SECONDARY\"})",
                             "intervalFactor": 2,
                             "legendFormat": "Replication Lag",
                             "refId": "A",
@@ -1625,7 +1625,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_replset_member_uptime{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_replset_member_uptime{instance=\"$mongod\"}",
                             "hide": false,
                             "interval": "",
                             "intervalFactor": 2,
@@ -1716,7 +1716,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "max(changes(mongodb_mongod_replset_member_election_date{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}[45s]))",
+                            "expr": "max(changes(mongodb_mongod_replset_member_election_date{instance=\"$mongod\"}[45s]))",
                             "intervalFactor": 2,
                             "legendFormat": "Elections",
                             "refId": "A",
@@ -1812,7 +1812,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "time() - max(mongodb_mongod_replset_member_last_heartbeat{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}) by (name)",
+                            "expr": "time() - max(mongodb_mongod_replset_member_last_heartbeat{instance=\"$mongod\"}) by (name)",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{name}}",
@@ -1902,7 +1902,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_replset_member_ping_ms{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",instance=\"$mongod\"}",
+                            "expr": "mongodb_mongod_replset_member_ping_ms{instance=\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{name}}",
                             "refId": "A",

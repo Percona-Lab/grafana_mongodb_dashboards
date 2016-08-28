@@ -2139,7 +2139,7 @@
                 "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
-                "query": "mongodb_mongod_wiredtiger_transactions_total{cluster=~\"$cluster\",nodetype=~\"(config|mongod)\"}",
+                "query": "mongodb_mongod_storage_engine{cluster=~\"$cluster\",engine=\"wiredTiger\"}",
                 "refresh": true,
                 "regex": "/alias=\"(.+?)\"/",
                 "tagsQuery": "",

@@ -2572,7 +2572,7 @@
                 "multiFormat": "glob",
                 "name": "mongod",
                 "options": [],
-                "query": "mongodb_mongod_rocksdb_background_errors{cluster=~\"$cluster\",nodetype=~\"(config|mongod)\"}",
+                "query": "mongodb_mongod_storage_engine{cluster=~\"$cluster\",engine=\"rocksdb\"}",
                 "refresh": true,
                 "regex": "/alias=\"(.+?)\"/",
                 "tagsQuery": "",

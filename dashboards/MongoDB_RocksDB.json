@@ -2998,7 +2998,7 @@
                 "multiFormat": "pipe",
                 "name": "rocksdbLevel",
                 "options": [],
-                "query": "mongodb_mongod_rocksdb_files{cluster=\"$cluster\",alias=\"$mongod\"}",
+                "query": "mongodb_mongod_rocksdb_files{alias=\"$mongod\"}",
                 "refresh": true,
                 "regex": "/level=\"(L[0-9]?)\"/",
                 "type": "query"

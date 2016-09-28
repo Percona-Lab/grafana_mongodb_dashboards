@@ -49,7 +49,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",type=\"total\"}",
+                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{alias=~\"$mongod\",type=\"total\"}",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -58,7 +58,7 @@
                     ],
                     "thresholds": "",
                     "timeFrom": "5m",
-                    "title": "RocksDB Cache Used",
+                    "title": "RocksDB Memtable Used",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [
@@ -105,7 +105,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "refId": "A",
                             "step": 11
@@ -135,10 +135,10 @@
                         "rgba(50, 172, 45, 0.97)"
                     ],
                     "datasource": null,
-                    "decimals": 2,
+                    "decimals": null,
                     "editable": true,
                     "error": false,
-                    "format": "bytes",
+                    "format": "percentunit",
                     "hideTimeOverride": true,
                     "id": 66,
                     "interval": null,
@@ -160,7 +160,7 @@
                     },
                     "targets": [
                         {
-                            "expr": "node_memory_Cached{alias=~\"$mongod\"}",
+                            "expr": "irate(mongodb_mongod_rocksdb_block_cache_hits_total{alias=~\"$mongod\"}[45s])/irate(mongodb_mongod_rocksdb_block_cache_misses_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "",
                             "refId": "A",
@@ -169,7 +169,7 @@
                     ],
                     "thresholds": "",
                     "timeFrom": "5m",
-                    "title": "Filesystem Cache Used",
+                    "title": "RocksDB Block Cache Hit Ratio",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [
@@ -377,9 +377,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 36,
+                    "id": 60,
                     "isNew": true,
-                    "leftYAxisLabel": "Documents / Sec",
+                    "leftYAxisLabel": "Operations / Sec",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -405,17 +405,179 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_metrics_document_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
-                            "hide": false,
+                            "expr": "irate(mongodb_mongod_op_counters_total{alias=\"$mongod\",type!=\"command\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "{{state}}",
-                            "refId": "J",
+                            "legendFormat": "{{type}}",
+                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "irate(mongodb_mongod_op_counters_repl_total{alias=\"$mongod\",type!=\"command\",type!=\"query\",type!=\"getmore\"}[45s])",
+                            "intervalFactor": 2,
+                            "legendFormat": "repl_{{type}}",
+                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
+                            "refId": "B",
                             "step": 2
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "Mongod - Document Activity",
+                    "title": "MongoDB Client Operations",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 1,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 73,
+                    "isNew": true,
+                    "leftYAxisLabel": "Keys / Sec",
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "rightYAxisLabel": "",
+                    "seriesOverrides": [
+                        {
+                            "alias": "written",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_rocksdb_keys_total{alias=~\"$mongod\"}[45s])",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Key Rate",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "none"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 1,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 69,
+                    "isNew": true,
+                    "leftYAxisLabel": "Entries",
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_memtable_entries{alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Memtable Entries",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -442,15 +604,15 @@
                         "leftMin": 0,
                         "rightLogBase": 1,
                         "rightMax": null,
-                        "rightMin": null,
+                        "rightMin": 0,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 52,
+                    "id": 87,
                     "isNew": true,
-                    "leftYAxisLabel": "Writes / Sec",
+                    "leftYAxisLabel": "Writes / Sync",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -470,52 +632,45 @@
                     "pointradius": 5,
                     "points": false,
                     "renderer": "flot",
+                    "rightYAxisLabel": "",
                     "seriesOverrides": [
                         {
-                            "alias": "Total",
-                            "fill": 0,
+                            "alias": "seeks",
                             "stack": false
                         }
                     ],
                     "span": 6,
-                    "stack": false,
+                    "stack": true,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_writes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_iterations_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "total",
+                            "legendFormat": "{{type}}_iteration",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_batches_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "irate(mongodb_mongod_rocksdb_seeks_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
-                            "legendFormat": "batched",
-                            "refId": "C",
-                            "step": 2
-                        },
-                        {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_operations_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "WAL-{{type}}",
+                            "legendFormat": "seeks",
                             "refId": "B",
                             "step": 2
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Write Activity",
+                    "title": "RocksDB Seeks and Iterations",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "cumulative"
+                        "value_type": "individual"
                     },
                     "type": "graph",
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
                         "none",
-                        "short"
+                        "none"
                     ]
                 }
             ],
@@ -574,14 +729,14 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_memtable_bytes{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "memtable_{{type}}",
                             "refId": "A",
                             "step": 2
                         },
                         {
-                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_block_cache_bytes{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "block_cache_total",
                             "refId": "B",
@@ -593,7 +748,593 @@
                     "title": "RocksDB Cache Usage",
                     "tooltip": {
                         "shared": true,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "bytes",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 1,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": null,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 88,
+                    "isNew": true,
+                    "leftYAxisLabel": "Operations / Sec",
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "rightYAxisLabel": "",
+                    "seriesOverrides": [
+                        {
+                            "alias": "misses",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_rocksdb_block_cache_hits_total{alias=~\"$mongod\"}[45s])",
+                            "intervalFactor": 2,
+                            "legendFormat": "hits",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "irate(mongodb_mongod_rocksdb_block_cache_misses_total{alias=~\"$mongod\"}[45s])",
+                            "intervalFactor": 2,
+                            "legendFormat": "misses",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Block Cache Activity",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "none"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 80,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"avg\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - Average",
+                    "tooltip": {
+                        "shared": true,
                         "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 90,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"P50\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - 50th Percentile",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 83,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"P75\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - 75th Percentile",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 84,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"P99\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - 99th Percentile",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 86,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"P99.9\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - 99.9th Percentile",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": null,
+                    "editable": true,
+                    "error": false,
+                    "fill": 1,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 81,
+                    "isNew": true,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "minSpan": null,
+                    "nullPointMode": "connected",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 4,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_read_latency_microseconds{alias=~\"$mongod\",level=~\"$rocksdbLevel\",type=\"max\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "{{level}}",
+                            "refId": "A",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Read Latency - Maximum",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "transparent": false,
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "\u00b5s",
+                        "short"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 1,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 52,
+                    "isNew": true,
+                    "leftYAxisLabel": "",
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "span": 6,
+                    "stack": true,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "irate(mongodb_mongod_rocksdb_bytes_written_total{alias=~\"$mongod\",type!=\"total\"}[45s])",
+                            "hide": false,
+                            "intervalFactor": 2,
+                            "legendFormat": "{{type}}",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Disk Write Activity",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "individual"
                     },
                     "type": "graph",
                     "x-axis": true,
@@ -623,9 +1364,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 69,
+                    "id": 89,
                     "isNew": true,
-                    "leftYAxisLabel": "Memtable Entries",
+                    "leftYAxisLabel": "",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -647,36 +1388,30 @@
                     "renderer": "flot",
                     "seriesOverrides": [],
                     "span": 6,
-                    "stack": false,
+                    "stack": true,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_memtable_active_entries{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "irate(mongodb_mongod_rocksdb_bytes_read_total{alias=~\"$mongod\",type!=\"total\"}[45s])",
+                            "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "active",
-                            "refId": "A",
-                            "step": 2
-                        },
-                        {
-                            "expr": "mongodb_mongod_rocksdb_immutable_memtable_entries{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "immutable",
+                            "legendFormat": "{{type}}",
                             "refId": "B",
                             "step": 2
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Memtable Entries",
+                    "title": "RocksDB Disk Read Activity",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "cumulative"
+                        "value_type": "individual"
                     },
                     "type": "graph",
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "none",
+                        "bytes",
                         "short"
                     ]
                 }
@@ -738,11 +1473,11 @@
                         }
                     ],
                     "span": 6,
-                    "stack": false,
+                    "stack": true,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_compaction_seconds_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_compaction_seconds_total{alias=~\"$mongod\",level=~\"$rocksdbLevel\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "B",
@@ -754,7 +1489,7 @@
                     "title": "RocksDB Compaction Time",
                     "tooltip": {
                         "shared": true,
-                        "value_type": "cumulative"
+                        "value_type": "individual"
                     },
                     "type": "graph",
                     "x-axis": true,
@@ -778,15 +1513,15 @@
                         "leftMin": 0,
                         "rightLogBase": 1,
                         "rightMax": null,
-                        "rightMin": 0,
+                        "rightMin": null,
                         "threshold1": null,
                         "threshold1Color": "rgba(216, 200, 27, 0.27)",
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 76,
+                    "id": 78,
                     "isNew": true,
-                    "leftYAxisLabel": "",
+                    "leftYAxisLabel": "Threads",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -807,18 +1542,14 @@
                     "points": false,
                     "renderer": "flot",
                     "rightYAxisLabel": "",
-                    "seriesOverrides": [
-                        {
-                            "alias": "Syncs",
-                            "yaxis": 2
-                        }
-                    ],
+                    "seriesOverrides": [],
                     "span": 6,
                     "stack": false,
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_compaction_write_amplification{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_compaction_file_threads{alias=~\"$mongod\",level=~\"$rocksdbLevel\"}",
+                            "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "A",
@@ -827,7 +1558,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Compaction Write Amplification",
+                    "title": "RocksDB Compaction Threads",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -902,7 +1633,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_size_bytes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level!=\"Sum\"}",
+                            "expr": "mongodb_mongod_rocksdb_size_bytes{alias=~\"$mongod\",level=~\"$rocksdbLevel\"}",
                             "intervalFactor": 2,
                             "legendFormat": "{{level}}",
                             "refId": "A",
@@ -944,416 +1675,17 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 73,
-                    "isNew": true,
-                    "leftYAxisLabel": "Keys / Sec",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": true,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": true
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "rightYAxisLabel": "",
-                    "seriesOverrides": [
-                        {
-                            "alias": "*_avg",
-                            "fill": 1
-                        }
-                    ],
-                    "span": 6,
-                    "stack": true,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_keys_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level=~\"L[0-9]\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "{{level}}_{{type}}",
-                            "refId": "A",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Compaction Key Rate",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "individual"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "none"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": 0,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 72,
+                    "id": 76,
                     "isNew": true,
                     "leftYAxisLabel": "",
                     "legend": {
                         "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [
-                        {
-                            "alias": "/write/",
-                            "transform": "negative-Y"
-                        }
-                    ],
-                    "span": 6,
-                    "stack": true,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level!=\"Sum\",type=~\"read.*\"}[45s])",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{level}}-{{type}}",
-                            "refId": "B",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Compaction Read Rate",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "individual"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "none"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": 0,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 46,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [
-                        {
-                            "alias": "seconds",
-                            "fill": 1,
-                            "linewidth": 1,
-                            "points": true,
-                            "yaxis": 2
-                        }
-                    ],
-                    "span": 6,
-                    "stack": true,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_rocksdb_compaction_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level!=\"Sum\",type=~\"write.*\"}[45s])",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{level}}-{{type}}",
-                            "refId": "B",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Compaction Write Rate",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "individual"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "s"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 78,
-                    "isNew": true,
-                    "leftYAxisLabel": "Threads",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "rightYAxisLabel": "",
-                    "seriesOverrides": [],
-                    "span": 6,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_rocksdb_compaction_file_threads{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level!=\"Sum\"}",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{level}}",
-                            "refId": "A",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Compaction Threads",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "none"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 75,
-                    "isNew": true,
-                    "leftYAxisLabel": "Files",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "rightYAxisLabel": "",
-                    "seriesOverrides": [],
-                    "span": 6,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_rocksdb_num_files{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\",level!=\"Sum\"}",
-                            "hide": false,
-                            "intervalFactor": 2,
-                            "legendFormat": "{{level}}",
-                            "refId": "A",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Compaction Level Files",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "none"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": 0,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 56,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "alignAsTable": false,
                         "avg": false,
                         "current": true,
-                        "max": true,
+                        "max": false,
                         "min": false,
-                        "rightSide": false,
-                        "show": false,
+                        "rightSide": true,
+                        "show": true,
                         "total": false,
                         "values": true
                     },
@@ -1377,16 +1709,16 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_rocksdb_write_ahead_log_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "mongodb_mongod_rocksdb_compaction_write_amplification{alias=~\"$mongod\",level=~\"$rocksdbLevel\"}",
                             "intervalFactor": 2,
-                            "legendFormat": "Write Rate",
+                            "legendFormat": "{{level}}",
                             "refId": "A",
                             "step": 2
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Write Ahead Log Rate",
+                    "title": "RocksDB Compaction Write Amplification",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1395,8 +1727,99 @@
                     "x-axis": true,
                     "y-axis": true,
                     "y_formats": [
-                        "Bps",
+                        "none",
                         "none"
+                    ]
+                }
+            ],
+            "title": "New row"
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "datasource": "Prometheus",
+                    "decimals": 1,
+                    "editable": true,
+                    "error": false,
+                    "fill": 2,
+                    "grid": {
+                        "leftLogBase": 1,
+                        "leftMax": null,
+                        "leftMin": 0,
+                        "rightLogBase": 1,
+                        "rightMax": null,
+                        "rightMin": null,
+                        "threshold1": null,
+                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+                        "threshold2": null,
+                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+                    },
+                    "id": 70,
+                    "isNew": true,
+                    "leftYAxisLabel": "Operations",
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "rightSide": true,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "current"
+                        }
+                    ],
+                    "span": 6,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "mongodb_mongod_rocksdb_pending_compactions{alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "compactions",
+                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
+                            "refId": "A",
+                            "step": 2
+                        },
+                        {
+                            "expr": "mongodb_mongod_rocksdb_pending_memtable_flushes{alias=~\"$mongod\"}",
+                            "intervalFactor": 2,
+                            "legendFormat": "memtable_flushes",
+                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
+                            "refId": "B",
+                            "step": 2
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "RocksDB Pending",
+                    "tooltip": {
+                        "shared": true,
+                        "value_type": "cumulative"
+                    },
+                    "type": "graph",
+                    "x-axis": true,
+                    "y-axis": true,
+                    "y_formats": [
+                        "none",
+                        "short"
                     ]
                 },
                 {
@@ -1453,7 +1876,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_rocksdb_write_ahead_log_writes_per_sync{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_rocksdb_write_ahead_log_writes_per_sync{alias=~\"$mongod\"}",
                             "intervalFactor": 2,
                             "legendFormat": "Writes per Sync",
                             "refId": "A",
@@ -1462,7 +1885,7 @@
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "RocksDB Write Ahead Log Sync Size",
+                    "title": "RocksDB WAL Sync Size",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1473,172 +1896,6 @@
                     "y_formats": [
                         "none",
                         "none"
-                    ]
-                }
-            ],
-            "title": "New row"
-        },
-        {
-            "collapse": false,
-            "editable": true,
-            "height": "250px",
-            "panels": [
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 57,
-                    "isNew": true,
-                    "leftYAxisLabel": "",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": false,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [
-                        {
-                            "alias": "current"
-                        }
-                    ],
-                    "span": 6,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "irate(mongodb_mongod_rocksdb_flushed_bytes_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[1m])",
-                            "intervalFactor": 2,
-                            "legendFormat": "Flush Rate",
-                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
-                            "refId": "A",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Flush Rate",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "Bps",
-                        "short"
-                    ]
-                },
-                {
-                    "aliasColors": {},
-                    "bars": false,
-                    "datasource": "Prometheus",
-                    "decimals": 1,
-                    "editable": true,
-                    "error": false,
-                    "fill": 2,
-                    "grid": {
-                        "leftLogBase": 1,
-                        "leftMax": null,
-                        "leftMin": 0,
-                        "rightLogBase": 1,
-                        "rightMax": null,
-                        "rightMin": null,
-                        "threshold1": null,
-                        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-                        "threshold2": null,
-                        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-                    },
-                    "id": 70,
-                    "isNew": true,
-                    "leftYAxisLabel": "Operations",
-                    "legend": {
-                        "alignAsTable": true,
-                        "avg": false,
-                        "current": false,
-                        "max": false,
-                        "min": false,
-                        "rightSide": true,
-                        "show": true,
-                        "total": false,
-                        "values": false
-                    },
-                    "lines": true,
-                    "linewidth": 2,
-                    "links": [],
-                    "nullPointMode": "null",
-                    "percentage": false,
-                    "pointradius": 5,
-                    "points": false,
-                    "renderer": "flot",
-                    "seriesOverrides": [
-                        {
-                            "alias": "current"
-                        }
-                    ],
-                    "span": 6,
-                    "stack": false,
-                    "steppedLine": false,
-                    "targets": [
-                        {
-                            "expr": "mongodb_mongod_rocksdb_pending_compactions{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "compactions",
-                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
-                            "refId": "A",
-                            "step": 2
-                        },
-                        {
-                            "expr": "mongodb_mongod_rocksdb_pending_memtable_flushes{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
-                            "intervalFactor": 2,
-                            "legendFormat": "memtable_flushes",
-                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
-                            "refId": "B",
-                            "step": 2
-                        }
-                    ],
-                    "timeFrom": null,
-                    "timeShift": null,
-                    "title": "RocksDB Pending",
-                    "tooltip": {
-                        "shared": true,
-                        "value_type": "cumulative"
-                    },
-                    "type": "graph",
-                    "x-axis": true,
-                    "y-axis": true,
-                    "y_formats": [
-                        "none",
-                        "short"
                     ]
                 }
             ],
@@ -1700,7 +1957,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_stalled_seconds_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_stalled_seconds_total{alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "Time Stalled",
@@ -1771,7 +2028,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_rocksdb_stalls_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_rocksdb_stalls_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
                             "refId": "A",
@@ -1821,9 +2078,9 @@
                         "threshold2": null,
                         "threshold2Color": "rgba(234, 112, 112, 0.22)"
                     },
-                    "id": 60,
+                    "id": 36,
                     "isNew": true,
-                    "leftYAxisLabel": "Operations / Sec",
+                    "leftYAxisLabel": "Documents / Sec",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -1849,25 +2106,17 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",type!=\"command\"}[45s])",
+                            "expr": "irate(mongodb_mongod_metrics_document_total{alias=~\"$mongod\"}[45s])",
+                            "hide": false,
                             "intervalFactor": 2,
-                            "legendFormat": "{{type}}",
-                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
-                            "refId": "A",
-                            "step": 2
-                        },
-                        {
-                            "expr": "irate(mongodb_mongod_op_counters_repl_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=\"$mongod\",type!=\"command\",type!=\"query\",type!=\"getmore\"}[45s])",
-                            "intervalFactor": 2,
-                            "legendFormat": "repl_{{type}}",
-                            "metric": "mongodb_mongod_rocksdb_concurrent_transactions_tickets_total",
-                            "refId": "B",
+                            "legendFormat": "{{state}}",
+                            "refId": "J",
                             "step": 2
                         }
                     ],
                     "timeFrom": null,
                     "timeShift": null,
-                    "title": "MongoDB Client Operations",
+                    "title": "Mongod - Document Activity",
                     "tooltip": {
                         "shared": true,
                         "value_type": "cumulative"
@@ -1928,7 +2177,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_query_executor_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "{{state}}",
                             "metric": "",
@@ -1936,7 +2185,7 @@
                             "step": 2
                         },
                         {
-                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_metrics_record_moves_total{alias=~\"$mongod\"}[45s])",
                             "intervalFactor": 2,
                             "legendFormat": "moved",
                             "refId": "B",
@@ -2012,7 +2261,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}[45s])",
+                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "faults",
@@ -2081,7 +2330,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "mongodb_mongod_global_lock_current_queue{cluster=\"$cluster\",nodetype=~\"(config|mongod)\",alias=~\"$mongod\"}",
+                            "expr": "mongodb_mongod_global_lock_current_queue{alias=~\"$mongod\"}",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "{{type}}",
@@ -2578,6 +2827,21 @@
                 "tagsQuery": "",
                 "type": "query",
                 "useTags": false
+            },
+            {
+                "allFormat": "pipe",
+                "current": {},
+                "datasource": null,
+                "includeAll": true,
+                "label": "RocksDB Level",
+                "multi": true,
+                "multiFormat": "pipe",
+                "name": "rocksdbLevel",
+                "options": [],
+                "query": "mongodb_mongod_rocksdb_files{cluster=\"$cluster\",alias=\"$mongod\"}",
+                "refresh": true,
+                "regex": "/level=\"(L[0-9]?)\"/",
+                "type": "query"
             }
         ]
     },
@@ -2613,5 +2877,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB RocksDB",
-    "version": 3
+    "version": 51
 }

@@ -542,7 +542,7 @@
                     },
                     "id": 87,
                     "isNew": true,
-                    "leftYAxisLabel": "Writes / Sync",
+                    "leftYAxisLabel": "Operations / Sec",
                     "legend": {
                         "alignAsTable": true,
                         "avg": false,
@@ -2397,7 +2397,7 @@
                     },
                     "id": 39,
                     "isNew": true,
-                    "leftYAxisLabel": "Page Faults",
+                    "leftYAxisLabel": "Faults",
                     "legend": {
                         "avg": false,
                         "current": false,
@@ -2421,7 +2421,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "delta(mongodb_mongod_extra_info_page_faults_total{alias=~\"$mongod\"}[45s])",
+                            "expr": "increase(mongodb_mongod_extra_info_page_faults_total{alias=~\"$mongod\"}[45s])",
                             "hide": false,
                             "intervalFactor": 2,
                             "legendFormat": "faults",
@@ -3037,5 +3037,5 @@
     },
     "timezone": "utc",
     "title": "MongoDB RocksDB",
-    "version": 62
+    "version": 64
 }

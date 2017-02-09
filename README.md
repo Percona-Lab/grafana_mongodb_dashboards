@@ -2,7 +2,7 @@
 
 Grafana dashboard templates for use with the [prometheus_mongodb_exporter](https://github.com/Percona-Lab/prometheus_mongodb_exporter) for MongoDB w/Prometheus
 
-## Moved!
+## THIS PROJECT HAS MOVED!!!
 This project has moved! Please see this repo for the latest dashboards: https://github.com/percona/grafana-dashboards
 
 *The old, pre-move dashboards will remain available in the 'dashboards/' subdir of this repo*
